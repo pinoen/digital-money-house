@@ -20,7 +20,7 @@ export default function Page() {
 
       console.log(response.data);
       localStorage.setItem('token', response.data.token)
-      router.push('/dashboard')
+      router.push('/home')
     } catch (error) {
       setError(true)
       console.error(error);
