@@ -30,9 +30,9 @@ const Menu = ({ setShowMenu }) => {
   }
 
   return (
-    <div className="z-50 absolute top-0 right-0 w-[400px]">
-      <div className="bg-A1">
-        <Image src="/closeBtn.svg" alt="logo" width={14} height={14} className="z-10 absolute top-8 right-8 cursor-pointer" onClick={() => setShowMenu(false)} />
+    <div className="z-50 absolute top-0 right-0 w-[400px] md:w-[221px] md:top-16 md:left-0">
+      <div className="bg-A1 md:hidden">
+        <Image src="/closeBtn.svg" alt="close btn" width={14} height={14} className="z-10 absolute top-8 right-8 cursor-pointer" onClick={() => setShowMenu(false)} />
         <h1 className="text-A3 font-semibold text-2xl p-4 z-10 cursor-pointer" onClick={handleClick}>Hola, <br />{firstname} {lastname}</h1>
       </div>
       <div className="flex flex-col items-start gap-4 p-4 bg-A3 h-screen">
@@ -42,7 +42,7 @@ const Menu = ({ setShowMenu }) => {
         <Link href={'/deposits'} className="w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center" onClick={() => setShowMenu(false)}>Cargar dinero</Link>
         <Link href={'/payments'} className="w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center" onClick={() => setShowMenu(false)}>Pagar servicios</Link>
         <Link href={'/cards'} className="w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center" onClick={() => setShowMenu(false)}>Tarjetas</Link>
-        <button className="w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center" onClick={handleLogout}>Cerrar sesión</button>
+        <button className="w-32 h-10 bg-A3 text-slate-700 font-bold rounded text-center content-center" onClick={handleLogout}>Cerrar sesión</button>
       </div>
     </div>
   )

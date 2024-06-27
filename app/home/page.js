@@ -11,7 +11,7 @@ export default function Page() {
   const money = parseFloat(account.available_amount).toFixed(2)
 
   return (
-    <main className="flex flex-col justify-start items-center bg-slate-100 h-screen">
+    <main className="flex flex-col justify-start items-center md:items-end bg-slate-100 h-screen  md:h-[1100px]">
       <ArrowBtn page='Inicio' />
       <AvailableMoneyCard money={money} />
       <BigBtn text='Ingresar dinero' goto={'/deposits'} />
