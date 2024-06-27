@@ -14,8 +14,8 @@ export default function Page() {
     <main className="flex flex-col justify-start items-center bg-slate-100 h-screen">
       <ArrowBtn page='Inicio' />
       <AvailableMoneyCard money={money} />
-      <BigBtn text='Ingresar dinero' />
-      <BigBtn text='Pago de servicios' />
+      <BigBtn text='Ingresar dinero' goto={'/deposits'} />
+      <BigBtn text='Pago de servicios' goto={'/services'} />
       <SearchActivity />
       <ActivityTable activity={activity} />
     </main>

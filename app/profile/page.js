@@ -14,7 +14,7 @@ export default function Page() {
     <main className="flex flex-col justify-start items-center bg-slate-100 h-screen">
       <ArrowBtn page='Perfil' />
       <PersonalDataCard email={email} fullname={`${firstname} ${lastname}`} cuit={dni} phone={phone} />
-      <BigBtn text='Gestionar medios de pago' />
+      <BigBtn text='Gestionar medios de pago' goto={'/payments'} />
       <CbuCard cvu={cvu} alias={alias} />
     </main>
   )

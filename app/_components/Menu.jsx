@@ -1,8 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useUser } from "../_contexts/userProvider"
 
 const Menu = ({ setShowMenu }) => {
+  const { user } = useUser()
+  const { firstname, lastname } = user
   const router = useRouter()
   const handleLogout = () => {
     fetch('https://digitalmoney.digitalhouse.com/api/logout', {
@@ -21,11 +24,16 @@ const Menu = ({ setShowMenu }) => {
     router.push('/landing')
   }
 
+  const handleClick = () => {
+    router.push('/home')
+    setShowMenu(false)
+  }
+
   return (
-    <div className="z-10 absolute top-0 right-0 w-[400px]">
+    <div className="z-50 absolute top-0 right-0 w-[400px]">
       <div className="bg-A1">
         <Image src="/closeBtn.svg" alt="logo" width={14} height={14} className="z-10 absolute top-8 right-8 cursor-pointer" onClick={() => setShowMenu(false)} />
-        <h1 className="text-A3 font-semibold text-2xl p-4 z-10">Hola, <br /> Emilio Pino</h1>
+        <h1 className="text-A3 font-semibold text-2xl p-4 z-10 cursor-pointer" onClick={handleClick}>Hola, <br />{firstname} {lastname}</h1>
       </div>
       <div className="flex flex-col gap-4 p-4 bg-A3 h-screen">
         <Link href={'/home'} className="w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center" onClick={() => setShowMenu(false)}>Inicio</Link>

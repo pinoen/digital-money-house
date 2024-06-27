@@ -12,8 +12,6 @@ export default function Page() {
       <ArrowBtn page='Tarjetas' />
       <AddCardBox />
       <CardsDataTable cards={cards} />
-
-
     </main>
   );
 }

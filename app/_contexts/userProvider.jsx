@@ -66,7 +66,7 @@ export const UserProvider = ({ children }) => {
   }, [accountId])
 
   return (
-    <UserContext.Provider value={{ user, activity, account, cards }}>
+    <UserContext.Provider value={{ user, activity, account, cards, accountId }}>
       {children}
     </UserContext.Provider>
   )
