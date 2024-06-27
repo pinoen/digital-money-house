@@ -8,7 +8,9 @@ import { useUser } from "../_contexts/userProvider"
 export const Header = () => {
   const params = usePathname()
   const { user } = useUser()
-  let initialUser = user ? user.firstname[0] + user.lastname[0] : 'VM'
+  const firstnameInitial = user?.firstname?.[0] ?? 'E'
+  const lastnameInitial = user?.lastname?.[0] ?? 'P'
+  const initialUser = firstnameInitial + lastnameInitial
 
 
   return (
