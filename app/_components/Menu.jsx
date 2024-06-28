@@ -33,7 +33,6 @@ const Menu = ({ setShowMenu }) => {
   const isActive = (path) => {
     return pathname === path
   }
-  console.log(pathname)
 
   return (
     <div className="z-50 absolute top-0 right-0 w-[400px] md:w-[221px] lg:w-[276px] md:top-16 md:left-0">

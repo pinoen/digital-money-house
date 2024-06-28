@@ -11,7 +11,7 @@ export default function Page() {
   const { cvu, alias } = account
 
   return (
-    <main className="flex flex-col justify-start md:items-end items-center bg-slate-100 h-screen">
+    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-screen">
       <ArrowBtn page='Perfil' />
       <PersonalDataCard email={email} fullname={`${firstname} ${lastname}`} cuit={dni} phone={phone} />
       <div className="flex justify-center lg:w-[1006px] lg:mr-16">
