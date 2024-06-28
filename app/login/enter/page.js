@@ -18,11 +18,13 @@ export default function Page() {
         password
       });
 
-      console.log(response.data);
       if (typeof window !== 'undefined') {
         localStorage.setItem('token', response.data.token)
       }
       router.push('/home')
+      setTimeout(() => {
+        router.refresh()
+      })
     } catch (error) {
       setError(true)
       console.error(error);

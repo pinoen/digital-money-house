@@ -1,5 +1,7 @@
+import { LandingMain } from "./_components/LandingMain";
+
 export default function Page() {
   return (
-    <h1>Hello DMH</h1>
+    <LandingMain />
   );
 }

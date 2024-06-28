@@ -24,7 +24,7 @@ const Menu = ({ setShowMenu }) => {
       localStorage.removeItem('account')
       localStorage.removeItem('activity')
       localStorage.removeItem('user')
-      router.push('/landing')
+      router.push('/')
     }
   }
 
