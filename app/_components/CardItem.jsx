@@ -9,7 +9,7 @@ const CardItem = ({ id, card, onDelete }) => {
       await axios.delete(`https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/cards/${id}`, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token')
+          'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
         }
       })
       onDelete(id);

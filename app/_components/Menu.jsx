@@ -8,21 +8,24 @@ const Menu = ({ setShowMenu }) => {
   const { firstname, lastname } = user
   const router = useRouter()
   const pathname = usePathname()
+
   const handleLogout = () => {
-    fetch('https://digitalmoney.digitalhouse.com/api/logout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('token')
-      }
-    })
-    setShowMenu(false)
-    localStorage.removeItem('token')
-    localStorage.removeItem('email')
-    localStorage.removeItem('account')
-    localStorage.removeItem('activity')
-    localStorage.removeItem('user')
-    router.push('/landing')
+    if (typeof window !== 'undefined') {
+      fetch('https://digitalmoney.digitalhouse.com/api/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token')
+        }
+      })
+      setShowMenu(false)
+      localStorage.removeItem('token')
+      localStorage.removeItem('email')
+      localStorage.removeItem('account')
+      localStorage.removeItem('activity')
+      localStorage.removeItem('user')
+      router.push('/landing')
+    }
   }
 
   const handleClick = () => {

@@ -9,7 +9,9 @@ export default function Page() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem('email', email)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('email', email)
+    }
     router.push('/login/enter')
   }
 
