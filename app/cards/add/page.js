@@ -29,7 +29,7 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col items-center md:items-end justify-start bg-slate-100 h-screen">
+    <main className="flex flex-col items-center lg:items-center lg:ml-52 lg:pt-8 md:items-end justify-start bg-slate-100 h-screen">
       <ArrowBtn page='Tarjetas' />
       <Cards
         number={card.number_id}

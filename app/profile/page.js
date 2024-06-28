@@ -14,7 +14,9 @@ export default function Page() {
     <main className="flex flex-col justify-start md:items-end items-center bg-slate-100 h-screen">
       <ArrowBtn page='Perfil' />
       <PersonalDataCard email={email} fullname={`${firstname} ${lastname}`} cuit={dni} phone={phone} />
-      <BigBtn text='Gestionar medios de pago' goto={'/payments'} />
+      <div className="flex justify-center lg:w-[1006px] lg:mr-16">
+        <BigBtn text='Gestionar medios de pago' goto={'/payments'} specificWidth={true} />
+      </div>
       <CbuCard cvu={cvu} alias={alias} />
     </main>
   )
