@@ -80,12 +80,19 @@ export const UserProvider = ({ children }) => {
     }
   }, [])
 
+  const addCard = (newCard) => {
+    setCards([...cards, newCard])
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('cards', JSON.stringify([...cards, newCard]))
+    }
+  }
+
   if (loading) {
     return <Page />
   }
 
   return (
-    <UserContext.Provider value={{ user, activity, account, cards, accountId, loading }}>
+    <UserContext.Provider value={{ user, activity, account, cards, accountId, loading, addCard }}>
       {children}
     </UserContext.Provider>
   )
