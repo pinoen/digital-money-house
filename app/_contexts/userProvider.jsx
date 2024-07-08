@@ -11,6 +11,8 @@ export const UserProvider = ({ children }) => {
   const [cards, setCards] = useState([])
   const [loading, setLoading] = useState(true)
   const accountId = account.id
+  const [selectedCard, setSelectedCard] = useState(null)
+  const [amount, setAmount] = useState(0)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -87,12 +89,25 @@ export const UserProvider = ({ children }) => {
     }
   }
 
+  const addActivity = (newActivity) => {
+    setActivity([...activity, newActivity])
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('activity', JSON.stringify([...activity, newActivity]))
+    }
+
+    if (newActivity.type === 'withdraw') {
+      setAmount(account.available_amount - newActivity.amount)
+    } else if (newActivity.type === 'deposit') {
+      setAmount(account.available_amount + newActivity.amount)
+    }
+  }
+
   if (loading) {
     return <Page />
   }
 
   return (
-    <UserContext.Provider value={{ user, activity, account, cards, accountId, loading, addCard }}>
+    <UserContext.Provider value={{ user, activity, account, cards, accountId, loading, addCard, selectedCard, setSelectedCard, amount, setAmount, addActivity }}>
       {children}
     </UserContext.Provider>
   )
