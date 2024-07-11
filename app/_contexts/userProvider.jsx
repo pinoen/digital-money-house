@@ -94,11 +94,13 @@ export const UserProvider = ({ children }) => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('activity', JSON.stringify([...activity, newActivity]))
     }
+  }
 
-    if (newActivity.type === 'withdraw') {
-      setAmount(account.available_amount - newActivity.amount)
-    } else if (newActivity.type === 'deposit') {
-      setAmount(account.available_amount + newActivity.amount)
+  const updateAccountBalance = (newBalance) => {
+    const updatedAccount = { ...account, available_amount: newBalance }
+    setAccount(updatedAccount)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('account', JSON.stringify(updatedAccount))
     }
   }
 
@@ -107,7 +109,7 @@ export const UserProvider = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ user, activity, account, cards, accountId, loading, addCard, selectedCard, setSelectedCard, amount, setAmount, addActivity }}>
+    <UserContext.Provider value={{ user, activity, account, cards, accountId, loading, addCard, selectedCard, setSelectedCard, amount, setAmount, addActivity, updateAccountBalance }}>
       {children}
     </UserContext.Provider>
   )

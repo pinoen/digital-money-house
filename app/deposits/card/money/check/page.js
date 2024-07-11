@@ -6,7 +6,7 @@ import { useUser } from "@/app/_contexts/userProvider";
 import axios from "axios";
 
 export default function Page() {
-  const { amount, account, accountId, addActivity } = useUser()
+  const { amount, account, accountId, addActivity, updateAccountBalance } = useUser()
   const { cvu } = account
   const data = {
     amount: parseInt(amount),
@@ -24,6 +24,8 @@ export default function Page() {
         }
       })
       addActivity(response.data)
+      const newBalance = parseInt(account.available_amount) + parseInt(amount)
+      updateAccountBalance(newBalance)
     } catch (error) {
       console.error(error)
     }
