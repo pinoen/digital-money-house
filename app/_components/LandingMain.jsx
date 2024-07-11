@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { LandingBlock } from "./LandingBlock"
 
 export const LandingMain = () => {
@@ -12,7 +11,6 @@ export const LandingMain = () => {
         <LandingBlock service={'Transferí dinero '} description={'Desde Digital Money House vas a poder transferir dinero a otras cuentas, asi como también recibir transferencias y nuclear tu capital en nuestra billetera virtual.'} />
         <LandingBlock service={'Pago de servicios'} description={'Pagá mensualmente los servicios en 3 simples clicks. Facil, rápido y conveniente. Olvidate de las facturas en papel.'} />
       </div>
-      {/* <Image className="absolute bottom-0" src="/bgLanding.svg" alt="bg landing" width={390} height={512} /> */}
       <div className="absolute bottom-0 bg-A3 h-[329px] md:h-[418px] lg:h-[148px] w-full rounded-t-xl" src="/bgLanding.svg" alt="bg landing" />
     </main>
   )

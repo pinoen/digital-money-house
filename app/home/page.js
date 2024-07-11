@@ -21,7 +21,7 @@ export default function Page() {
   }, [user])
 
   return (
-    <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-screen  md:h-[1100px]">
+    <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
       <ArrowBtn page='Inicio' />
       <AvailableMoneyCard money={money} />
 
