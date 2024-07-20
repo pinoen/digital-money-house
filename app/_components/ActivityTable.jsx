@@ -25,6 +25,10 @@ const ActivityTable = ({ activity }) => {
   const totalPages = isActivityArray ? Math.ceil(filteredActivity.length / itemsPerPage) : 1
   const currentItems = isActivityArray ? filteredActivity.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : []
 
+  // variable that brings just the last 5 transactions, from the last one to the first
+  const lastTransactions = currentItems.slice(-5).reverse()
+  console.log(currentItems)
+
   return (
     <div className="m-4 p-4 flex flex-col gap-4 shadow-xl rounded-xl w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16">
       <div className="flex justify-between">
@@ -36,14 +40,15 @@ const ActivityTable = ({ activity }) => {
       </div>
       {showFilter && <FilterOptions activity={activity} applyFilter={applyFilter} setShowFilter={setShowFilter} />}
       <hr className="h-[2px] bg-gray-300 border-gray-300" />
-      <div className="flex flex-col gap-4">
-        {isActivityArray && currentItems.map((item) => <ActivityItem key={item.id} name={item.origin} money={item.amount} date={item.dated} />)}
-      </div>
+      {isActivityArray && <div className="flex flex-col gap-4">
+        {params === '/home' ? lastTransactions.map((item) => <ActivityItem key={item.id} name={item.origin} money={item.amount} date={item.dated} />) :
+          currentItems.map((item) => <ActivityItem key={item.id} name={item.origin} money={item.amount} date={item.dated} />)}
+      </div>}
       {params === '/activity' && <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
-      <div className="flex justify-between mt-2 cursor-pointer" onClick={() => router.push('/activity')}>
+      {params === '/home' && <div className="flex justify-between mt-2 cursor-pointer" onClick={() => router.push('/activity')}>
         <p className="font-semibold text-sm">Ver toda tu actividad</p>
         <Image src="/arrowBtn.svg" alt="arrow" width={20} height={20} />
-      </div>
+      </div>}
     </div>
   )
 }
