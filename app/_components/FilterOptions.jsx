@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
 import BigBtn from './BigBtn'
+import { applyDateFilter } from '../_utils/dateFilter'
 
-const FilterOptions = () => {
+const FilterOptions = ({ activity, applyFilter, setShowFilter }) => {
   const [selectedPeriod, setSelectedPeriod] = useState('')
 
   const handlePeriod = (e) => {
     setSelectedPeriod(e.target.value)
+  }
+
+  const handleApplyFilter = () => {
+    const filteredData = applyDateFilter(selectedPeriod, activity)
+    applyFilter(filteredData)
+  }
+
+  const handleOnClick = () => {
+    handleApplyFilter()
+    setShowFilter(false)
   }
 
 
@@ -39,7 +50,7 @@ const FilterOptions = () => {
             <input type='radio' name='period' value='Ultimo año' checked={selectedPeriod === 'Ultimo año'} onChange={handlePeriod} />
           </label>
         </div>
-        <BigBtn text='Aplicar' goto={'/home'} />
+        <BigBtn text='Aplicar' goto={'/activity'} handleClick={handleOnClick} />
       </div>
     </div>
   )
