@@ -58,8 +58,8 @@ const ActivityTable = ({ activity, searchQuery }) => {
       {showFilter && <FilterOptions activity={activity} applyFilter={applyFilter} setShowFilter={setShowFilter} />}
       <hr className="h-[2px] bg-gray-300 border-gray-300" />
       {isActivityArray && <div className="flex flex-col gap-4">
-        {params === '/home' ? lastTransactions.map((item) => <ActivityItem key={item.id} name={item.origin} money={item.amount} date={item.dated} />) :
-          currentItems.map((item) => <ActivityItem key={item.id} name={item.origin} money={item.amount} date={item.dated} />)}
+        {params === '/home' ? lastTransactions.map((item) => <ActivityItem key={item.id} id={item.id} name={item.origin} money={item.amount} date={item.dated} />) :
+          currentItems.map((item) => <ActivityItem key={item.id} id={item.id} name={item.origin} money={item.amount} date={item.dated} />)}
       </div>}
       {params === '/activity' && <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
       {params === '/home' && <div className="flex justify-between mt-2 cursor-pointer" onClick={() => router.push('/activity')}>
