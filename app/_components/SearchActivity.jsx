@@ -1,10 +1,14 @@
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const SearchActivity = ({ onSearch }) => {
-  const [search, setSearch] = useState('');
+const SearchActivity = ({ onSearch, initialSeach = '' }) => {
+  const [search, setSearch] = useState(initialSeach);
   const params = usePathname()
+
+  useEffect(() => {
+    setSearch(initialSeach)
+  }, [initialSeach])
 
   const handleSeachChange = (e) => {
     setSearch(e.target.value);

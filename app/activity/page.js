@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
       <ArrowBtn page='Tu actividad' />
-      <SearchActivity onSearch={setSearchQuery} />
+      <SearchActivity onSearch={setSearchQuery} initialSeach={searchQuery} />
       <ActivityTable activity={activity} searchQuery={searchQuery} />
     </main>
   )
