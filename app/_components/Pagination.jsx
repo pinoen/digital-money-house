@@ -8,7 +8,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
   }
 
   return (
-    <div className="flex justify-between mt-4">
+    <div className="flex justify-between mt-4 mb-28">
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}

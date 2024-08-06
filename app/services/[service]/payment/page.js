@@ -27,7 +27,7 @@ export default function Page({ params }) {
   }
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-screen">
+    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+250px)]">
       <ArrowBtn page='Pagar servicios' />
       <ServiceToPay service={params.service.toUpperCase()} amount={1000} />
       <CardsDataTable cards={cards} />

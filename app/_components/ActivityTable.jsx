@@ -61,7 +61,7 @@ const ActivityTable = ({ activity, searchQuery }) => {
           currentItems.map((item) => <ActivityItem key={item.id} id={item.id} name={item.origin} money={item.amount} date={item.dated} />)}
       </div>}
       {params === '/activity' && <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
-      {params === '/home' && <div className="flex justify-between mt-2 cursor-pointer" onClick={() => router.push('/activity')}>
+      {params === '/home' && <div className="flex justify-between mb-28 cursor-pointer" onClick={() => router.push('/activity')}>
         <p className="font-semibold text-sm">Ver toda tu actividad</p>
         <Image src="/arrowBtn.svg" alt="arrow" width={20} height={20} />
       </div>}

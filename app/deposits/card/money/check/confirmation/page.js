@@ -14,7 +14,7 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-screen">
+    <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-[calc(100vh+200px)]">
       <ArrowBtn page='Cargar dinero' />
       <ConfirmationBlock />
       <CheckAmount amount={amount} cvu={cvu} />

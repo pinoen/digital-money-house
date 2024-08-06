@@ -11,7 +11,7 @@ export default function Page() {
   const filteredServices = services.filter(service => service.service.toLowerCase().includes(searchQuery.toLowerCase()))
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-screen">
+    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-full">
       <ArrowBtn page='Pagar servicios' />
       <SearchActivity onSearch={setSearchQuery} />
       <div className="flex flex-col justify-center bg-white rounded-lg w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16 h-fit m-4 p-4">
