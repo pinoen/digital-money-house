@@ -19,12 +19,18 @@ const FilterOptions = ({ activity, applyFilter, setShowFilter }) => {
     setShowFilter(false)
   }
 
+  const handleDeleteFilters = () => {
+    applyFilter(activity)
+    setSelectedPeriod('')
+    setShowFilter(false)
+  }
+
 
   return (
     <div className="z-50 absolute top-72 right-3 w-[340px] h-[500px] md:top-56 md:w-[511px] lg:w-[1006px] ">
       <div className="bg-white flex flex-col gap-2 w-full h-[430px] border-2 border-gray-300">
         <div className='flex justify-between m-3'>
-          <h3 className='font-bold text-xl'>Periodo</h3><span className=' text-gray-700 cursor-pointer'>Borrar filtros</span>
+          <h3 className='font-bold text-xl'>Periodo</h3><span onClick={handleDeleteFilters} className=' text-gray-700 cursor-pointer'>Borrar filtros</span>
         </div>
         <hr className="h-[2px] bg-gray-300 border-gray-300" />
         <div className='flex flex-col gap-3 m-3 w-full pr-8 pl-2 md:pr-20 md:pl-10'>
