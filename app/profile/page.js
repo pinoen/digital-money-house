@@ -11,11 +11,11 @@ export default function Page() {
   const { cvu, alias } = account
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-full">
+    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+115px)]">
       <ArrowBtn page='Perfil' />
       <PersonalDataCard email={email} fullname={`${firstname} ${lastname}`} cuit={dni} phone={phone} />
       <div className="flex justify-center lg:w-[1006px] lg:mr-16">
-        <BigBtn text='Gestionar medios de pago' goto={'/payments'} specificWidth={true} />
+        <BigBtn text='Gestionar medios de pago' goto={'/cards'} specificWidth={true} />
       </div>
       <CbuCard cvu={cvu} alias={alias} />
     </main>
