@@ -22,6 +22,7 @@ export default function Page() {
         localStorage.setItem('token', response.data.token)
       }
       router.push('/home')
+      router.refresh()
     } catch (error) {
       setError(true)
       console.error(error);

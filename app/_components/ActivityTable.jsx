@@ -42,8 +42,7 @@ const ActivityTable = ({ activity, searchQuery }) => {
   }, [searchQuery, activity]);
 
   const totalPages = isActivityArray ? Math.ceil(filteredActivity.length / itemsPerPage) : 1
-  const currentItems = isActivityArray ? filteredActivity.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage) : []
-
+  const currentItems = isActivityArray ? filteredActivity.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).reverse() : []
   const lastTransactions = currentItems.slice(-5).reverse()
 
   return (

@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const SearchActivity = ({ onSearch }) => {
   const [search, setSearch] = useState('');
+  const params = usePathname()
 
   const handleSeachChange = (e) => {
     setSearch(e.target.value);
@@ -10,11 +12,11 @@ const SearchActivity = ({ onSearch }) => {
   }
 
   return (
-    <div className="relative m-4 w-[300px] md:w-[511px] lg:w-[1006px] lg:mr-16 md:mr-6">
+    <div className="relative m-4 w-[330px] md:w-[511px] lg:w-[1006px] lg:mr-16 md:mr-6">
       <input
         className="h-16 p-4 w-full bg-white text-black border-2 border-blue-300 rounded-2xl shadow-xl pl-12"
         type="text"
-        placeholder="Buscar en tu actividad"
+        placeholder={params === '/services' ? "Buscá entre más de 5.000 empresas" : "Buscar en tu actividad"}
         onChange={handleSeachChange}
         value={search}
       />

@@ -48,7 +48,7 @@ const Menu = ({ setShowMenu }) => {
         <Link href={'/activity'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/activity') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Actividad</Link>
         <Link href={'/profile'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/profile') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Tu perfil</Link>
         <Link href={'/deposits'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/deposits') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Cargar dinero</Link>
-        <Link href={'/payments'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/payments') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Pagar servicios</Link>
+        <Link href={'/services'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/payments') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Pagar servicios</Link>
         <Link href={'/cards'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/cards') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Tarjetas</Link>
         <button className="w-32 h-10 bg-A3 text-slate-700 font-bold rounded text-center content-center" onClick={handleLogout}>Cerrar sesión</button>
       </div>
