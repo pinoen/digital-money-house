@@ -43,7 +43,7 @@ const Menu = ({ setShowMenu }) => {
         <Image src="/closeBtn.svg" alt="close btn" width={14} height={14} className="z-10 absolute top-8 right-8 cursor-pointer" onClick={() => setShowMenu(false)} />
         <h1 className="text-A3 font-semibold text-2xl p-4 z-10 cursor-pointer" onClick={handleClick}>Hola, <br />{firstname} {lastname}</h1>
       </div>
-      <div className="flex flex-col items-center gap-4 p-4 bg-A3 h-screen">
+      <div className="flex flex-col items-center gap-4 p-4 bg-A3 h-[calc(100vh+115px)]">
         <Link href={'/home'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/home') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Inicio</Link>
         <Link href={'/activity'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/activity') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Actividad</Link>
         <Link href={'/profile'} className={`w-32 h-10 bg-A3 text-black font-bold rounded text-center content-center ${isActive('/profile') && 'bg-green-400'}`} onClick={() => setShowMenu(false)}>Tu perfil</Link>

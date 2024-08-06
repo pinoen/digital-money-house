@@ -8,7 +8,7 @@ export default function Page() {
   const { cards } = useUser()
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-[calc(100vh+200px)]">
+    <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-[calc(100vh+115px)]">
       <ArrowBtn page='Tarjetas' />
       <AddCardBox />
       <CardsDataTable cards={cards} />
