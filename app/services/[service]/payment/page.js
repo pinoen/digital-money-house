@@ -5,9 +5,11 @@ import CardsDataTable from "@/app/_components/CardsDataTable";
 import ServiceToPay from "@/app/_components/ServiceToPay";
 import { useUser } from "@/app/_contexts/userProvider";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Page({ params }) {
   const { cards, accountId } = useUser()
+  const router = useRouter()
 
   const handlePayment = async () => {
     try {
@@ -22,6 +24,7 @@ export default function Page({ params }) {
         }
       })
     } catch (error) {
+      router.push(`/services/${params.service}/payment/fail`)
       console.log(error)
     }
   }
