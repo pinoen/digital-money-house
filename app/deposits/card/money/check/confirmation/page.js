@@ -18,7 +18,7 @@ export default function Page() {
       <ArrowBtn page='Cargar dinero' />
       <ConfirmationBlock />
       <CheckAmount amount={amount} cvu={cvu} />
-      <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={'/home'} />
+      <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={'/deposits/card/money/check/confirmation'} />
       <BigBtn text='Ir al inicio' goto={'/home'} />
     </main>
   )

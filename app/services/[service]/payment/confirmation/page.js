@@ -7,7 +7,7 @@ import { useUser } from "@/app/_contexts/userProvider";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function Page() {
+export default function Page({ params }) {
   const { selectedCard, accountId } = useUser()
   const [cardData, setCardData] = useState({})
 
@@ -31,7 +31,7 @@ export default function Page() {
       <ArrowBtn page='Pagar servicios' />
       <ConfirmationBlock />
       <ConfirmationPayment card={cardData.number_id} amount={1000} />
-      <BigBtn text='Descargar comprobante' goto={`/home`} handleClick={handlePrint} />
+      <BigBtn text='Descargar comprobante' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePrint} />
       <BigBtn text='Ir al inicio' goto={`/home`} />
     </main>
   )

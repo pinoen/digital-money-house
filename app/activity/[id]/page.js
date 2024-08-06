@@ -31,7 +31,7 @@ export default async function Page({ params }) {
       <p className={`font-bold ${params === '/deposits/card/money/check' ? 'text-white text-xl' : 'text-A3 text-2xl'}`}>{transaction.destination}</p>
       <p className="text-white">Numero de operacion</p>
       <small className="text-white">000000000{transaction.id}</small>
-      <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={'/home'} />
+      <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={`/activity/${params.id}`} />
       <BigBtn text='Ir al inicio' goto={'/home'} />
     </div>
   );
