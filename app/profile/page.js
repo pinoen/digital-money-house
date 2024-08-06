@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+115px)]">
       <ArrowBtn page='Perfil' />
-      <PersonalDataCard email={email} fullname={`${firstname} ${lastname}`} cuit={dni} phone={phone} />
+      <PersonalDataCard email={email} fullname={`${firstname} ${lastname}`} cuit={dni} phone={phone} password="******" userId={user.id} />
       <div className="flex justify-center lg:w-[1006px] lg:mr-16">
         <BigBtn text='Gestionar medios de pago' goto={'/cards'} specificWidth={true} />
       </div>
