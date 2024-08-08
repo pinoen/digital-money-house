@@ -6,18 +6,18 @@ export const metadata = {
 import '@/app/globals.css'
 import { Header } from './_components/Header'
 import { Footer } from './_components/Footer'
-import { UserProvider } from './_contexts/userProvider'
+import ReduxProvider from './_redux/ReduxProvider'
 
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <UserProvider>
+        <ReduxProvider>
           <Header />
           {children}
           <Footer />
-        </UserProvider>
+        </ReduxProvider>
       </body>
     </html>
   )
