@@ -6,8 +6,8 @@ import useWindowWidth from '../_hooks/useWindowWidth'
 const HomeHeader = ({ user }) => {
   const [showMenu, setShowMenu] = useState(false)
   const windowWidth = useWindowWidth()
-  const firstnameInitial = user?.firstname?.[0] ?? 'E'
-  const lastnameInitial = user?.lastname?.[0] ?? 'P'
+  const firstnameInitial = user?.firstname?.[0] ?? 'X'
+  const lastnameInitial = user?.lastname?.[0] ?? 'X'
   const initialUser = firstnameInitial + lastnameInitial
   const fullname = user?.firstname + ' ' + user?.lastname
 

@@ -41,9 +41,9 @@ const ActivityTable = ({ activity, searchQuery }) => {
     }
   }, [searchQuery, activity]);
 
-  const totalPages = isActivityArray ? Math.ceil(filteredActivity.length / itemsPerPage) : 1
-  const currentItems = isActivityArray ? filteredActivity.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).reverse() : []
-  const lastTransactions = filteredActivity.slice(-5).reverse()
+  const totalPages = isActivityArray ? Math.ceil(filteredActivity?.length / itemsPerPage) : 1
+  const currentItems = isActivityArray ? filteredActivity?.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).reverse() : []
+  const lastTransactions = filteredActivity?.slice(-5).reverse()
 
   return (
     <div className="m-4 p-4 flex flex-col gap-4 shadow-xl rounded-xl w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16">
@@ -57,8 +57,8 @@ const ActivityTable = ({ activity, searchQuery }) => {
       {showFilter && <FilterOptions activity={activity} applyFilter={applyFilter} setShowFilter={setShowFilter} />}
       <hr className="h-[2px] bg-gray-300 border-gray-300" />
       {isActivityArray && <div className="flex flex-col gap-4">
-        {params === '/home' ? lastTransactions.map((item) => <ActivityItem key={item.id} id={item.id} name={item.origin} money={item.amount} date={item.dated} />) :
-          currentItems.map((item) => <ActivityItem key={item.id} id={item.id} name={item.origin} money={item.amount} date={item.dated} />)}
+        {params === '/home' ? lastTransactions?.map((item) => <ActivityItem key={item.id} id={item.id} name={item.origin} money={item.amount} date={item.dated} />) :
+          currentItems?.map((item) => <ActivityItem key={item.id} id={item.id} name={item.origin} money={item.amount} date={item.dated} />)}
       </div>}
       {params === '/activity' && <Pagination totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
       {params === '/home' && <div className="flex justify-between mb-28 cursor-pointer" onClick={() => router.push('/activity')}>

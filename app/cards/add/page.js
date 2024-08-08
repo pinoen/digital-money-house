@@ -1,14 +1,17 @@
 "use client"
 import AddNewCardForm from "@/app/_components/AddNewCardForm";
 import ArrowBtn from "@/app/_components/ArrowBtn";
-import { useUser } from "@/app/_contexts/userProvider";
+import { addCard } from "@/app/_redux/features/userSlice";
 import axios from "axios";
 import { useState } from "react";
 import Cards from 'react-credit-cards-2'
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Page() {
-  const { accountId, addCard } = useUser()
+  const dispatch = useDispatch()
+  const account = useSelector(state => state.user.account)
+  const { id: accountId } = account
   const [card, setCard] = useState({
     cod: '',
     expiration_date: '',
@@ -46,7 +49,7 @@ export default function Page() {
           'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
         }
       })
-      addCard(response.data)
+      dispatch(addCard(response.data))
     } catch (error) {
       console.error(error);
     }

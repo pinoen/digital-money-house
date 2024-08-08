@@ -3,12 +3,14 @@ import ArrowBtn from "@/app/_components/ArrowBtn";
 import BigBtn from "@/app/_components/BigBtn";
 import ConfirmationBlock from "@/app/_components/ConfirmationBlock";
 import ConfirmationPayment from "@/app/_components/ConfirmationPayment";
-import { useUser } from "@/app/_contexts/userProvider";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Page({ params }) {
-  const { selectedCard, accountId } = useUser()
+  const account = useSelector(state => state.user.account)
+  const accountId = account?.id
+  const selectedCard = useSelector(state => state.user.selectedCard)
   const [cardData, setCardData] = useState({})
 
   useEffect(() => {

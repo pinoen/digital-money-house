@@ -1,9 +1,10 @@
 import axios from "axios"
-import { useUser } from "../_contexts/userProvider"
 import { usePathname } from "next/navigation"
+import { useSelector } from "react-redux"
 
 const CardItem = ({ id, card, onDelete, selectedCard, onSelect }) => {
-  const { accountId } = useUser()
+  const account = useSelector(state => state.user.account)
+  const { accountId } = account
   const params = usePathname()
 
   const handleDelete = async () => {

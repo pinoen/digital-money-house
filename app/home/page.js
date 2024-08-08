@@ -5,14 +5,15 @@ import ArrowBtn from "../_components/ArrowBtn";
 import AvailableMoneyCard from "../_components/AvailableMoneyCard";
 import BigBtn from "../_components/BigBtn";
 import SearchActivity from "../_components/SearchActivity";
-import { useUser } from "../_contexts/userProvider";
 import useWindowWidth from "../_hooks/useWindowWidth";
+import { useSelector } from "react-redux";
 
 export default function Page() {
-  const { user, account, activity } = useUser()
-  const money = parseFloat(account.available_amount).toFixed(2)
-  const windowWidth = useWindowWidth()
   const [searchQuery, setSearchQuery] = useState('')
+  const windowWidth = useWindowWidth()
+  const activityData = useSelector(state => state.user.activity)
+  const accountData = useSelector(state => state.user.account)
+  const money = parseFloat(accountData?.available_amount).toFixed(2)
 
   return (
     <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
@@ -26,7 +27,7 @@ export default function Page() {
       {windowWidth > 1024 ? null : <BigBtn text='Ingresar dinero' goto={'/deposits'} />}
       {windowWidth > 1024 ? null : <BigBtn text='Pago de servicios' goto={'/services'} />}
       <SearchActivity onSearch={setSearchQuery} initialSeach={searchQuery} />
-      <ActivityTable activity={activity} searchQuery={searchQuery} />
+      <ActivityTable activity={activityData} searchQuery={searchQuery} />
     </main>
   );
 }

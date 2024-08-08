@@ -2,12 +2,15 @@
 import ArrowBtn from "@/app/_components/ArrowBtn";
 import BigBtn from "@/app/_components/BigBtn";
 import CheckAmount from "@/app/_components/CheckAmount";
-import { useUser } from "@/app/_contexts/userProvider";
+import { addActivity, updateAccountBalance } from "@/app/_redux/features/userSlice";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Page() {
-  const { amount, account, accountId, addActivity, updateAccountBalance } = useUser()
-  const { cvu } = account
+  const amount = useSelector(state => state.user.amount)
+  const account = useSelector(state => state.user.account)
+  const dispatch = useDispatch()
+  const { cvu, id: accountId } = account
   const data = {
     amount: parseInt(amount),
     date: new Date(),
@@ -23,9 +26,9 @@ export default function Page() {
           'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
         }
       })
-      addActivity(response.data)
+      dispatch(addActivity(response.data))
       const newBalance = parseInt(account.available_amount) + parseInt(amount)
-      updateAccountBalance(newBalance)
+      dispatch(updateAccountBalance(newBalance))
     } catch (error) {
       console.error(error)
     }

@@ -1,15 +1,13 @@
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
-import { useUser } from "../_contexts/userProvider"
 import { useState } from "react"
 
-const AddCardBox = () => {
+const AddCardBox = ({ cards }) => {
   const [error, setError] = useState(false)
-  const { cards } = useUser()
   const router = useRouter()
   const params = usePathname()
   const handleAddCard = () => {
-    if (cards.length <= 10) {
+    if (cards?.length <= 10) {
       router.push('/cards/add')
     } else {
       setError(true)

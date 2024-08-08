@@ -3,17 +3,20 @@ import ArrowBtn from "@/app/_components/ArrowBtn";
 import BigBtn from "@/app/_components/BigBtn";
 import CardsDataTable from "@/app/_components/CardsDataTable";
 import ServiceToPay from "@/app/_components/ServiceToPay";
-import { useUser } from "@/app/_contexts/userProvider";
+import { addActivity, updateAccountBalance } from "@/app/_redux/features/userSlice";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Page({ params }) {
-  const { cards, accountId } = useUser()
+  const account = useSelector((state) => state.user.account)
+  const cards = useSelector((state) => state.user.cards)
   const router = useRouter()
+  const dispatch = useDispatch()
 
   const handlePayment = async () => {
     try {
-      await axios.post(`https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions`, {
+      const response = await axios.post(`https://digitalmoney.digitalhouse.com/api/accounts/${account?.id}/transactions`, {
         dated: new Date(),
         amount: -1000,
         description: 'Pago de servicio',
@@ -23,6 +26,10 @@ export default function Page({ params }) {
           'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
         }
       })
+      dispatch(addActivity(response.data))
+      const newBalance = parseInt(account.available_amount) - 1000
+      dispatch(updateAccountBalance(newBalance))
+
     } catch (error) {
       router.push(`/services/${params.service}/payment/fail`)
       console.log(error)

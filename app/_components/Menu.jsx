@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { useUser } from "../_contexts/userProvider"
+import { useSelector } from "react-redux"
 
 const Menu = ({ setShowMenu }) => {
-  const { user } = useUser()
+  const user = useSelector(state => state.user.user)
   const { firstname, lastname } = user
   const router = useRouter()
   const pathname = usePathname()
@@ -24,6 +24,7 @@ const Menu = ({ setShowMenu }) => {
       localStorage.removeItem('account')
       localStorage.removeItem('activity')
       localStorage.removeItem('user')
+      localStorage.removeItem('cards')
       router.push('/')
     }
   }

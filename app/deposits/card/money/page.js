@@ -2,15 +2,20 @@
 import AddMoneyInput from "@/app/_components/AddMoneyInput";
 import ArrowBtn from "@/app/_components/ArrowBtn";
 import BigBtn from "@/app/_components/BigBtn";
-import { useUser } from "@/app/_contexts/userProvider";
+import { setAmount } from "@/app/_redux/features/userSlice";
+import { useDispatch } from "react-redux";
 
 export default function Page() {
-  const { setAmount } = useUser()
+  const dispatch = useDispatch()
+
+  const handleSetAmount = (amount) => {
+    dispatch(setAmount(amount))
+  }
 
   return (
     <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-screen">
       <ArrowBtn page='Cargar dinero' />
-      <AddMoneyInput setAmount={setAmount} />
+      <AddMoneyInput setAmount={handleSetAmount} />
       <BigBtn text='Continuar' goto={'/deposits/card/money/check'} />
     </main>
   )
