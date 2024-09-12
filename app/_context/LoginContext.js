@@ -5,8 +5,8 @@ export const LoginContext = createContext()
 
 export const LoginContextProvider = ({ children }) => {
   const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
+    email: "pinoen@yahoo.com.ar",
+    password: "Emili0$",
   })
 
   return (

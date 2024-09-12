@@ -10,14 +10,12 @@ import useWindowWidth from "../_hooks/useWindowWidth";
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('')
   const windowWidth = useWindowWidth()
-  const activityData = useSelector(state => state.user.activity)
-  const accountData = useSelector(state => state.user.account)
-  const money = parseFloat(accountData?.available_amount).toFixed(2)
+  // const money = parseFloat(accountData?.available_amount).toFixed(2)
 
   return (
     <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
       <ArrowBtn page='Inicio' />
-      <AvailableMoneyCard money={money} />
+      <AvailableMoneyCard money={100} />
 
       {windowWidth > 1024 ? <div className="flex gap-1 mr-16">
         <BigBtn text='Ingresar dinero' goto={'/deposits'} />
@@ -26,7 +24,7 @@ export default function Page() {
       {windowWidth > 1024 ? null : <BigBtn text='Ingresar dinero' goto={'/deposits'} />}
       {windowWidth > 1024 ? null : <BigBtn text='Pago de servicios' goto={'/services'} />}
       <SearchActivity onSearch={setSearchQuery} initialSeach={searchQuery} />
-      <ActivityTable activity={activityData} searchQuery={searchQuery} />
+      {/* <ActivityTable activity={activityData} searchQuery={searchQuery} /> */}
     </main>
   );
 }

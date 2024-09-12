@@ -16,14 +16,17 @@ export default function Page() {
     setIsLoading(true)
 
     try {
-      await axios.post('https://digitalmoney.digitalhouse.com/api/login', {
+      const res = await axios.post('https://digitalmoney.digitalhouse.com/api/login', {
         email: loginData.email,
         password: loginData.password
       })
 
+      console.log(res.data)
+
       await signIn('credentials', {
         email: loginData.email,
-        password: loginData.password
+        password: loginData.password,
+        callbackUrl: '/home',
       })
 
       router.push('/home')

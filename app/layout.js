@@ -8,7 +8,7 @@ import { Header } from './_components/Header'
 import { Footer } from './_components/Footer'
 import { ContextProvider } from './_context/ContextProvider'
 import SessionWrapper from './_context/SessionWrapper'
-
+import ReactQueryProvider from './_context/ReactQueryProvider'
 
 export default function RootLayout({ children }) {
   return (
@@ -16,9 +16,11 @@ export default function RootLayout({ children }) {
       <body>
         <SessionWrapper>
           <ContextProvider>
-            <Header />
-            {children}
-            <Footer />
+            <ReactQueryProvider>
+              <Header />
+              {children}
+              <Footer />
+            </ReactQueryProvider>
           </ContextProvider>
         </SessionWrapper>
       </body>
