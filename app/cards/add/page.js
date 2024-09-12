@@ -1,16 +1,12 @@
 "use client"
 import AddNewCardForm from "@/app/_components/AddNewCardForm";
 import ArrowBtn from "@/app/_components/ArrowBtn";
-import { addCard } from "@/app/_redux/features/userSlice";
 import axios from "axios";
 import { useState } from "react";
 import Cards from 'react-credit-cards-2'
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
-import { useDispatch, useSelector } from "react-redux";
 
 export default function Page() {
-  const dispatch = useDispatch()
-  const account = useSelector(state => state.user.account)
   const { id: accountId } = account
   const [card, setCard] = useState({
     cod: '',

@@ -3,11 +3,9 @@ import Image from "next/image"
 import LandingHeader from "./LandingHeader"
 import HomeHeader from "./HomeHeader"
 import { usePathname } from "next/navigation"
-import { useSelector } from "react-redux"
 
 export const Header = () => {
   const params = usePathname()
-  const user = useSelector(state => state.user.user)
 
   return (
     <header className="flex justify-between px-5 items-center gap-4 h-16 bg-A1">

@@ -3,7 +3,6 @@ import ArrowBtn from "@/app/_components/ArrowBtn";
 import BigBtn from "@/app/_components/BigBtn";
 import CheckAmount from "@/app/_components/CheckAmount";
 import ConfirmationBlock from "@/app/_components/ConfirmationBlock";
-import { useSelector } from "react-redux";
 
 export default function Page() {
   const amount = useSelector(state => state.user.amount)

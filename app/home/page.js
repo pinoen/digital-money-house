@@ -6,7 +6,6 @@ import AvailableMoneyCard from "../_components/AvailableMoneyCard";
 import BigBtn from "../_components/BigBtn";
 import SearchActivity from "../_components/SearchActivity";
 import useWindowWidth from "../_hooks/useWindowWidth";
-import { useSelector } from "react-redux";
 
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('')

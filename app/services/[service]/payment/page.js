@@ -3,16 +3,11 @@ import ArrowBtn from "@/app/_components/ArrowBtn";
 import BigBtn from "@/app/_components/BigBtn";
 import CardsDataTable from "@/app/_components/CardsDataTable";
 import ServiceToPay from "@/app/_components/ServiceToPay";
-import { addActivity, updateAccountBalance } from "@/app/_redux/features/userSlice";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
 
 export default function Page({ params }) {
-  const account = useSelector((state) => state.user.account)
-  const cards = useSelector((state) => state.user.cards)
   const router = useRouter()
-  const dispatch = useDispatch()
 
   const handlePayment = async () => {
     try {

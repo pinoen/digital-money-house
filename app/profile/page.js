@@ -1,13 +1,10 @@
 'use client'
-import { useSelector } from "react-redux";
 import ArrowBtn from "../_components/ArrowBtn";
 import BigBtn from "../_components/BigBtn";
 import CbuCard from "../_components/CbuCard";
 import PersonalDataCard from "../_components/PersonalDataCard";
 
 export default function Page() {
-  const account = useSelector(state => state.user.account)
-  const userData = useSelector(state => state.user.user)
 
   const { id, email, firstname, lastname, dni, phone } = userData || {}
   const { cvu, alias } = account || {}

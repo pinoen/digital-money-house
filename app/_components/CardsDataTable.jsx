@@ -1,20 +1,16 @@
 import CardItem from "./CardItem"
 import { usePathname } from "next/navigation"
-import { useDispatch, useSelector } from "react-redux"
-import { setSelectedCard } from "../_redux/features/userSlice"
 
 const CardsDataTable = ({ cards }) => {
   const selectedCard = useSelector(state => state.user.selectedCard)
   const isCardsArray = Array.isArray(cards)
   const params = usePathname()
-  const dispatch = useDispatch()
 
   const handleDelete = (id) => {
     setCards(cards.filter(card => card.id !== id))
   }
 
   const handleSelect = (id) => {
-    dispatch(setSelectedCard(id))
   }
 
   return (

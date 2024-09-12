@@ -1,14 +1,10 @@
 'use client'
 import BigBtn from "@/app/_components/BigBtn";
-import { useGetAccountQuery, useGetTransactionQuery } from "@/app/_redux/api/userApi";
 import { formatDateToLongFormat } from "@/app/_utils/dateFormatter";
 import Image from "next/image";
-import { useSelector } from "react-redux";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Page({ params }) {
-  const account = useSelector(state => state.user.account)
-  const { data: transaction } = useGetTransactionQuery({ account: account?.id, id: params.id })
 
   const printTicket = () => {
     window.print()

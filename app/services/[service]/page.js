@@ -2,14 +2,10 @@
 import AddMoneyInput from "@/app/_components/AddMoneyInput";
 import ArrowBtn from "@/app/_components/ArrowBtn";
 import BigBtn from "@/app/_components/BigBtn";
-import { setAmount } from "@/app/_redux/features/userSlice";
-import { useDispatch } from "react-redux";
 
 export default function Page({ params }) {
-  const dispatch = useDispatch()
 
   const handleSetAmount = (amount) => {
-    dispatch(setAmount(amount))
   }
 
   return (

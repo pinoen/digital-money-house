@@ -40,7 +40,6 @@ funcionalidades básicas de registro, inicio y cierre de sesión, dar de alta me
 ![MongoDB](https://img.shields.io/static/v1?style=for-the-badge&message=MongoDB&color=4169E1&logo=MongoDB&logoColor=FFFFFF&label=)
 ![React](https://img.shields.io/static/v1?style=for-the-badge&message=React&color=222222&logo=React&logoColor=61DAFB&label=)
 ![NextJS](https://img.shields.io/static/v1?style=for-the-badge&message=NextJS&color=222222&logo=Vercel&logoColor=61DAFB&label=)
-![Redux](https://img.shields.io/static/v1?style=for-the-badge&message=Redux&color=008CDD&logo=Redux&logoColor=FFFFFF&label=)
 ![Tailwind](https://img.shields.io/static/v1?style=for-the-badge&message=Tailwind&color=222222&logo=Tailwind&logoColor=61DAFB&label=)
 ![eslint](https://img.shields.io/static/v1?style=for-the-badge&message=eslint&color=222222&logo=eslint&logoColor=61DAFB&label=)
 ![axios](https://img.shields.io/static/v1?style=for-the-badge&message=axios&color=008CDD&logo=axios&logoColor=FFFFFF&label=)

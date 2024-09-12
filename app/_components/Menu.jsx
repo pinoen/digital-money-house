@@ -1,32 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { useSelector } from "react-redux"
 
 const Menu = ({ setShowMenu }) => {
-  const user = useSelector(state => state.user.user)
   const { firstname, lastname } = user
   const router = useRouter()
   const pathname = usePathname()
 
   const handleLogout = () => {
-    if (typeof window !== 'undefined') {
-      fetch('https://digitalmoney.digitalhouse.com/api/logout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token')
-        }
-      })
-      setShowMenu(false)
-      localStorage.removeItem('token')
-      localStorage.removeItem('email')
-      localStorage.removeItem('account')
-      localStorage.removeItem('activity')
-      localStorage.removeItem('user')
-      localStorage.removeItem('cards')
-      router.push('/')
-    }
+
   }
 
   const handleClick = () => {

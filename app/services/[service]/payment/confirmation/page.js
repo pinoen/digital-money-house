@@ -5,12 +5,8 @@ import ConfirmationBlock from "@/app/_components/ConfirmationBlock";
 import ConfirmationPayment from "@/app/_components/ConfirmationPayment";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 export default function Page({ params }) {
-  const account = useSelector(state => state.user.account)
-  const accountId = account?.id
-  const selectedCard = useSelector(state => state.user.selectedCard)
   const [cardData, setCardData] = useState({})
 
   useEffect(() => {
