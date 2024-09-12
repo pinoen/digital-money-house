@@ -6,15 +6,21 @@ export const metadata = {
 import '@/app/globals.css'
 import { Header } from './_components/Header'
 import { Footer } from './_components/Footer'
+import { ContextProvider } from './_context/ContextProvider'
+import SessionWrapper from './_context/SessionWrapper'
 
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <SessionWrapper>
+          <ContextProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ContextProvider>
+        </SessionWrapper>
       </body>
     </html>
   )
