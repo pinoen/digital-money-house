@@ -13,11 +13,16 @@ import { useUserActivity } from "../_hooks/useUserActivity";
 export default function Page() {
   const [searchQuery, setSearchQuery] = useState('')
   const windowWidth = useWindowWidth()
+  const [isMounted, setIsMounted] = useState(false)
   const session = useSession()
   const jwt = session.data?.user.token
   const account = useUserAccount(jwt)
   const money = parseFloat(account?.available_amount).toFixed(2)
   const activityData = useUserActivity(account?.id, jwt)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   return (
     <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
@@ -28,8 +33,8 @@ export default function Page() {
         <BigBtn text='Ingresar dinero' goto={'/deposits'} />
         <BigBtn text='Pago de servicios' goto={'/services'} />
       </div> : null}
-      {windowWidth > 1024 ? null : <BigBtn text='Ingresar dinero' goto={'/deposits'} />}
-      {windowWidth > 1024 ? null : <BigBtn text='Pago de servicios' goto={'/services'} />}
+      {isMounted && windowWidth > 1024 ? null : <BigBtn text='Ingresar dinero' goto={'/deposits'} />}
+      {isMounted && windowWidth > 1024 ? null : <BigBtn text='Pago de servicios' goto={'/services'} />}
       <SearchActivity onSearch={setSearchQuery} initialSeach={searchQuery} />
       <ActivityTable activity={activityData} searchQuery={searchQuery} />
     </main>
