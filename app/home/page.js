@@ -16,7 +16,7 @@ export default function Page() {
   const [isMounted, setIsMounted] = useState(false)
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const money = parseFloat(account?.available_amount).toFixed(2)
   const activityData = useUserActivity(account?.id, jwt)
 

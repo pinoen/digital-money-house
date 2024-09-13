@@ -14,7 +14,7 @@ export default function Page({ params }) {
   const session = useSession()
   const jwt = session.data?.user.token
   const { selectedCard } = useLoginData()
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const cardData = useCardData(account?.id, selectedCard, jwt)
 
   useEffect(() => {

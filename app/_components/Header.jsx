@@ -11,7 +11,7 @@ export const Header = () => {
   const params = usePathname()
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const userId = account?.user_id
   const user = useUserData(userId, jwt)
 

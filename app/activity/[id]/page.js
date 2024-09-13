@@ -12,7 +12,7 @@ export default async function Page({ params }) {
   const [isMounted, setIsMounted] = useState(false)
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const transaction = useGetUserTransaction(account?.id, params.id, jwt)
 
   useEffect(() => {

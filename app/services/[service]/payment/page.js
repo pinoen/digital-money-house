@@ -11,7 +11,7 @@ import { useUserCards } from "../../../_hooks/useUserCards";
 export default function Page({ params }) {
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const cards = useUserCards(account?.id, jwt)
   const { mutate } = useCreateTransaction(account?.id, jwt, params)
 

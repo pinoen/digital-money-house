@@ -7,7 +7,7 @@ const CardItem = ({ id, card, selectedCard, setSelectedCard }) => {
   const params = usePathname()
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const { mutate } = useDeleteCard(account?.id, id, jwt)
 
   return (

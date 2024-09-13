@@ -13,7 +13,7 @@ export default function Page() {
   const { amount } = useLoginData()
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const { cvu } = account
   const [isMounted, setIsMounted] = useState(false)
 

@@ -11,7 +11,7 @@ export default function Page() {
   const [searchQuery, setSearchQuery] = useState('')
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const activityData = useUserActivity(account?.id, jwt)
 
   return (

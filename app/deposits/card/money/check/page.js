@@ -6,13 +6,15 @@ import CheckAmount from "../../../../_components/CheckAmount";
 import { useUserAccount } from "../../../../_hooks/useUserAccount";
 import { useLoginData } from "../../../../_context/LoginContext";
 import { useCreateDeposit } from "../../../../_hooks/useCreateDeposit";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   const { amount } = useLoginData()
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const { cvu, id } = account
+
   const data = {
     amount: parseInt(amount),
     date: new Date(),
@@ -25,7 +27,6 @@ export default function Page() {
   const handleAddActivity = async () => {
     mutate(data)
   }
-
 
   return (
     <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-screen">

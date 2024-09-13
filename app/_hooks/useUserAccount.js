@@ -2,15 +2,16 @@ import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
 export const useUserAccount = (jwt) => {
-  const { data } = useQuery({
+  return useQuery({
     queryKey: ['account'],
-    queryFn: () => {
-      return axios.get(`https://digitalmoney.digitalhouse.com/api/account`, {
+    queryFn: async () => {
+      const response = await axios.get(`https://digitalmoney.digitalhouse.com/api/account`, {
         headers: {
           'Authorization': jwt
         }
       })
+      return response.data
     },
+    enabled: !!jwt
   })
-  return data?.data
 }

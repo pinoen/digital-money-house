@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function Page() {
   const session = useSession()
   const jwt = session.data?.user.token
-  const account = useUserAccount(jwt)
+  const { data: account } = useUserAccount(jwt)
   const cards = useUserCards(account?.id, jwt)
 
   return (
