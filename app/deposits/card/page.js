@@ -6,13 +6,12 @@ import BigBtn from "../../_components/BigBtn";
 import CardsDataTable from "../../_components/CardsDataTable";
 import { useUserAccount } from "../../_hooks/useUserAccount";
 import { useUserCards } from "../../_hooks/useUserCards";
-import { useState } from "react";
 
 export default function Page() {
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
-  const cards = useUserCards(account?.id, jwt)
+  const { id: accountId } = useUserAccount(jwt)
+  const cards = useUserCards(accountId, jwt)
 
   return (
     <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-[calc(100vh+250px)]">

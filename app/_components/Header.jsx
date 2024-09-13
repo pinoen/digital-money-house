@@ -11,9 +11,8 @@ export const Header = () => {
   const params = usePathname()
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
-  const userId = account?.user_id
-  const user = useUserData(userId, jwt)
+  const { user_id } = useUserAccount(jwt)
+  const user = useUserData(user_id, jwt)
 
   return (
     <header className="flex justify-between px-5 items-center gap-4 h-16 bg-A1">

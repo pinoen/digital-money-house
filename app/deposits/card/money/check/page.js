@@ -6,14 +6,12 @@ import CheckAmount from "../../../../_components/CheckAmount";
 import { useUserAccount } from "../../../../_hooks/useUserAccount";
 import { useLoginData } from "../../../../_context/LoginContext";
 import { useCreateDeposit } from "../../../../_hooks/useCreateDeposit";
-import { useEffect, useState } from "react";
 
 export default function Page() {
   const { amount } = useLoginData()
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
-  const { cvu, id } = account
+  const { cvu, id } = useUserAccount(jwt)
 
   const data = {
     amount: parseInt(amount),

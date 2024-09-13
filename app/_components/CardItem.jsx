@@ -7,8 +7,8 @@ const CardItem = ({ id, card, selectedCard, setSelectedCard }) => {
   const params = usePathname()
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
-  const { mutate } = useDeleteCard(account?.id, id, jwt)
+  const { id: accountId } = useUserAccount(jwt)
+  const { mutate } = useDeleteCard(accountId, id, jwt)
 
   return (
     <div className="flex justify-start lg:justify-between gap-4 my-8">

@@ -11,7 +11,7 @@ import { useCreateCard } from "../../_hooks/useCreateCard";
 export default function Page() {
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
+  const { id: accountId } = useUserAccount(jwt)
   const [card, setCard] = useState({
     cod: '',
     expiration_date: '',
@@ -34,7 +34,7 @@ export default function Page() {
     })
   }
 
-  const { mutate } = useCreateCard(account?.id, jwt)
+  const { mutate } = useCreateCard(accountId, jwt)
 
   const handleAddCard = async () => {
     const newCard = {

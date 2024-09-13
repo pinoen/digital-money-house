@@ -14,8 +14,8 @@ export default function Page({ params }) {
   const session = useSession()
   const jwt = session.data?.user.token
   const { selectedCard } = useLoginData()
-  const { data: account } = useUserAccount(jwt)
-  const cardData = useCardData(account?.id, selectedCard, jwt)
+  const { id: accountId } = useUserAccount(jwt)
+  const cardData = useCardData(accountId, selectedCard, jwt)
 
   useEffect(() => {
     setIsMounted(true)

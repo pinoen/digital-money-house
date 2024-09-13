@@ -11,8 +11,8 @@ export default function Page() {
   const [searchQuery, setSearchQuery] = useState('')
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
-  const activityData = useUserActivity(account?.id, jwt)
+  const { id: accountId } = useUserAccount(jwt)
+  const activityData = useUserActivity(accountId, jwt)
 
   return (
     <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">

@@ -10,11 +10,9 @@ import { useUserAccount } from "../_hooks/useUserAccount";
 export default function Page() {
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
-  const userId = account?.user_id
-  const user = useUserData(userId, jwt)
+  const { user_id, cvu, alias } = useUserAccount(jwt)
+  const user = useUserData(user_id, jwt)
   const { id, email, firstname, lastname, dni, phone } = user || {}
-  const { cvu, alias } = account || {}
 
   return (
     <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+115px)]">

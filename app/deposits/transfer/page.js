@@ -7,8 +7,7 @@ import { useUserAccount } from "../../_hooks/useUserAccount";
 export default function Page() {
   const session = useSession()
   const jwt = session.data?.user.token
-  const { data: account } = useUserAccount(jwt)
-  const { cvu, alias } = account
+  const { cvu, alias } = useUserAccount(jwt)
 
   return (
     <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-screen">
