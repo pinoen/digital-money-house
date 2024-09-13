@@ -17,7 +17,7 @@ export const useCreateDeposit = (accountId, jwt) => {
       queryClient.invalidateQueries(['deposits', 'account', 'activity', 'cards', 'user'])
     },
     onError: (error) => {
-      console.error('Error creating deposit:', error)
+      console.error('Error creating deposit:', error.message)
     },
   })
 
