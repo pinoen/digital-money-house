@@ -1,7 +1,7 @@
 'use client'
-import ArrowBtn from "@/app/_components/ArrowBtn";
-import BigBtn from "@/app/_components/BigBtn";
-import PaymentError from "@/app/_components/PaymentError";
+import ArrowBtn from "../../../../_components/ArrowBtn";
+import BigBtn from "../../../../_components/BigBtn";
+import PaymentError from "../../../../_components/PaymentError";
 
 export default function Page({ params }) {
   return (
