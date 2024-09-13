@@ -28,16 +28,17 @@ const handler = NextAuth({
   pages: {
     signIn: "/login"
   },
+
   callbacks: {
     async jwt({ token, user }) {
       return { ...token, ...user }
     },
-    async session({ session, token }) {
+    async session({ session, token, user }) {
       session.user = token
-      return session
+      return { ...session, ...user }
     }
   },
-  session: { strategy: "jwt" },
+  session: { strategy: "jwt", maxAge: 30 * 24 * 60 * 60 },
   secret: process.env.NEXTAUTH_SECRET
 })
 

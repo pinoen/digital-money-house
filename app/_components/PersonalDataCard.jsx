@@ -1,5 +1,7 @@
 import { useState } from "react";
 import PersonalDataItem from "./PersonalDataItem";
+import { useSession } from "next-auth/react";
+import { useUpdateUserData } from "../_hooks/useUpdateUserData";
 
 const fieldMap = {
   'Email': 'email',
@@ -11,33 +13,17 @@ const fieldMap = {
 
 const PersonalDataCard = ({ email, fullname, cuit, phone, password, userId }) => {
   const [userData, setUserData] = useState({ email, fullname, cuit, phone, password });
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const { mutate } = useUpdateUserData(userId, jwt)
 
   const handleEdit = async (field, value) => {
     const fieldName = fieldMap[field];
     const newUserData = { ...userData, [fieldName]: value };
     setUserData(newUserData);
-
     const payload = { [fieldName]: value };
 
-    try {
-      const response = await fetch(`https://digitalmoney.digitalhouse.com/api/users/${userId}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      console.log('User data updated successfully:', data);
-    } catch (error) {
-      console.error('Error updating user data:', error);
-    }
+    mutate(payload);
   };
 
   return (

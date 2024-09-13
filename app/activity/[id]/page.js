@@ -1,10 +1,17 @@
 'use client'
-import BigBtn from "@/app/_components/BigBtn";
-import { formatDateToLongFormat } from "@/app/_utils/dateFormatter";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
+import BigBtn from "../../_components/BigBtn";
+import { formatDateToLongFormat } from "../../_utils/dateFormatter";
+import { useGetUserTransaction } from "../../_hooks/useGetUserTransaction";
+import { useUserAccount } from "../../_hooks/useUserAccount";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Page({ params }) {
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const account = useUserAccount(jwt)
+  const transaction = useGetUserTransaction(account?.id, params.id, jwt)
 
   const printTicket = () => {
     window.print()

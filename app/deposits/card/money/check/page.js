@@ -1,10 +1,15 @@
 'use client'
-import ArrowBtn from "@/app/_components/ArrowBtn";
-import BigBtn from "@/app/_components/BigBtn";
-import CheckAmount from "@/app/_components/CheckAmount";
+import { useSession } from "next-auth/react";
+import ArrowBtn from "../../../../_components/ArrowBtn";
+import BigBtn from "../../../../_components/BigBtn";
+import CheckAmount from "../../../../_components/CheckAmount";
 import axios from "axios";
+import { useUserAccount } from "../../../../_hooks/useUserAccount";
 
 export default function Page() {
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const account = useUserAccount(jwt)
   const { cvu, id: accountId } = account
   const data = {
     amount: parseInt(amount),

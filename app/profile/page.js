@@ -1,12 +1,19 @@
 'use client'
+import { useSession } from "next-auth/react";
 import ArrowBtn from "../_components/ArrowBtn";
 import BigBtn from "../_components/BigBtn";
 import CbuCard from "../_components/CbuCard";
 import PersonalDataCard from "../_components/PersonalDataCard";
+import { useUserData } from "../_hooks/useUserData";
+import { useUserAccount } from "../_hooks/useUserAccount";
 
 export default function Page() {
-
-  const { id, email, firstname, lastname, dni, phone } = userData || {}
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const account = useUserAccount(jwt)
+  const userId = account?.user_id
+  const user = useUserData(userId, jwt)
+  const { id, email, firstname, lastname, dni, phone } = user || {}
   const { cvu, alias } = account || {}
 
   return (
