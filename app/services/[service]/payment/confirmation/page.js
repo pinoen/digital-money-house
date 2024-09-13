@@ -7,17 +7,24 @@ import ConfirmationPayment from "../../../../_components/ConfirmationPayment";
 import { useUserAccount } from "../../../../_hooks/useUserAccount";
 import { useLoginData } from "../../../../_context/LoginContext";
 import { useCardData } from "../../../../_hooks/useCardData";
+import { useEffect, useState } from "react";
 
 export default function Page({ params }) {
+  const [isMounted, setIsMounted] = useState(false)
   const session = useSession()
   const jwt = session.data?.user.token
   const { selectedCard } = useLoginData()
   const account = useUserAccount(jwt)
   const cardData = useCardData(account?.id, selectedCard, jwt)
-  console.log(cardData)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const handlePrint = () => {
-    window.print()
+    if (typeof window !== 'undefined') {
+      window.print()
+    }
   }
 
   return (
@@ -25,8 +32,14 @@ export default function Page({ params }) {
       <ArrowBtn page='Pagar servicios' />
       <ConfirmationBlock />
       <ConfirmationPayment card={cardData?.number_id} amount={1000} />
-      <BigBtn text='Descargar comprobante' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePrint} />
-      <BigBtn text='Ir al inicio' goto={`/home`} />
+      {
+        isMounted && (
+          <>
+            <BigBtn text='Descargar comprobante' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePrint} />
+            <BigBtn text='Ir al inicio' goto={`/home`} />
+          </>
+        )
+      }
     </main>
   )
 }

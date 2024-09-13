@@ -1,4 +1,6 @@
 'use client'
+
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import ArrowBtn from "../../../../../_components/ArrowBtn";
 import BigBtn from "../../../../../_components/BigBtn";
@@ -13,9 +15,16 @@ export default function Page() {
   const jwt = session.data?.user.token
   const account = useUserAccount(jwt)
   const { cvu } = account
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   const printTicket = () => {
-    window.print()
+    if (typeof window !== 'undefined') {
+      window.print()
+    }
   }
 
   return (
@@ -23,8 +32,12 @@ export default function Page() {
       <ArrowBtn page='Cargar dinero' />
       <ConfirmationBlock />
       <CheckAmount amount={amount} cvu={cvu} />
-      <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={'/deposits/card/money/check/confirmation'} />
-      <BigBtn text='Ir al inicio' goto={'/home'} />
+      {isMounted && (
+        <>
+          <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={'/deposits/card/money/check/confirmation'} />
+          <BigBtn text='Ir al inicio' goto={'/home'} />
+        </>
+      )}
     </main>
   )
 }

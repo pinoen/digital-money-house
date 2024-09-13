@@ -5,16 +5,24 @@ import BigBtn from "../../_components/BigBtn";
 import { formatDateToLongFormat } from "../../_utils/dateFormatter";
 import { useGetUserTransaction } from "../../_hooks/useGetUserTransaction";
 import { useUserAccount } from "../../_hooks/useUserAccount";
+import { useEffect, useState } from "react";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function Page({ params }) {
+  const [isMounted, setIsMounted] = useState(false)
   const session = useSession()
   const jwt = session.data?.user.token
   const account = useUserAccount(jwt)
   const transaction = useGetUserTransaction(account?.id, params.id, jwt)
 
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   const printTicket = () => {
-    window.print()
+    if (typeof window !== 'undefined') {
+      window.print()
+    }
   }
 
   return (
@@ -33,8 +41,12 @@ export default async function Page({ params }) {
       <p className={`font-bold ${params === '/deposits/card/money/check' ? 'text-white text-xl' : 'text-A3 text-2xl'}`}>{transaction?.destination}</p>
       <p className="text-white">Numero de operacion</p>
       <small className="text-white">000000000{transaction?.id}</small>
-      <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={`/activity/${params.id}`} />
-      <BigBtn text='Ir al inicio' goto={'/home'} />
+      {isMounted && (
+        <>
+          <BigBtn text='Descargar comprobante' handleClick={printTicket} goto={`/activity/${params.id}`} />
+          <BigBtn text='Ir al inicio' goto={'/home'} />
+        </>
+      )}
     </div>
   );
 }

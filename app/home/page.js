@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ActivityTable from "../_components/ActivityTable";
 import ArrowBtn from "../_components/ArrowBtn";
 import AvailableMoneyCard from "../_components/AvailableMoneyCard";
