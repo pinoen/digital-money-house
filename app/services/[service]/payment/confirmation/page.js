@@ -1,24 +1,20 @@
 'use client'
-import ArrowBtn from "@/app/_components/ArrowBtn";
-import BigBtn from "@/app/_components/BigBtn";
-import ConfirmationBlock from "@/app/_components/ConfirmationBlock";
-import ConfirmationPayment from "@/app/_components/ConfirmationPayment";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import ArrowBtn from "../../../../_components/ArrowBtn";
+import BigBtn from "../../../../_components/BigBtn";
+import ConfirmationBlock from "../../../../_components/ConfirmationBlock";
+import ConfirmationPayment from "../../../../_components/ConfirmationPayment";
+import { useUserAccount } from "../../../../_hooks/useUserAccount";
+import { useLoginData } from "../../../../_context/LoginContext";
+import { useCardData } from "../../../../_hooks/useCardData";
 
 export default function Page({ params }) {
-  const [cardData, setCardData] = useState({})
-
-  useEffect(() => {
-    axios.get(`https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/cards/${selectedCard}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
-      }
-    }).then(res => {
-      setCardData(res.data)
-    })
-  }, [accountId, selectedCard])
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const { selectedCard } = useLoginData()
+  const account = useUserAccount(jwt)
+  const cardData = useCardData(account?.id, selectedCard, jwt)
+  console.log(cardData)
 
   const handlePrint = () => {
     window.print()
@@ -28,7 +24,7 @@ export default function Page({ params }) {
     <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+100px)]">
       <ArrowBtn page='Pagar servicios' />
       <ConfirmationBlock />
-      <ConfirmationPayment card={cardData.number_id} amount={1000} />
+      <ConfirmationPayment card={cardData?.number_id} amount={1000} />
       <BigBtn text='Descargar comprobante' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePrint} />
       <BigBtn text='Ir al inicio' goto={`/home`} />
     </main>

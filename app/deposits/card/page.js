@@ -13,12 +13,11 @@ export default function Page() {
   const jwt = session.data?.user.token
   const account = useUserAccount(jwt)
   const cards = useUserCards(account?.id, jwt)
-  const [selectedCard, setSelectedCard] = useState(null)
 
   return (
     <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-[calc(100vh+250px)]">
       <ArrowBtn page='Cargar dinero' />
-      <CardsDataTable cards={cards} setSelectedCard={setSelectedCard} selectedCard={selectedCard} />
+      <CardsDataTable cards={cards} />
       <AddCardBox cards={cards} />
       <BigBtn text='Continuar' goto={'/deposits/card/money'} />
     </main>

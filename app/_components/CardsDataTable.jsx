@@ -1,17 +1,11 @@
+import { useLoginData } from "../_context/LoginContext"
 import CardItem from "./CardItem"
 import { usePathname } from "next/navigation"
 
-const CardsDataTable = ({ cards, setSelectedCard, selectedCard }) => {
+const CardsDataTable = ({ cards }) => {
   const isCardsArray = Array.isArray(cards)
   const params = usePathname()
-
-  // const handleDelete = (id) => {
-  //   setSelectedCard(null)
-  // }
-
-  // const handleSelect = (id) => {
-  //   setSelectedCard(id)
-  // }
+  const { selectedCard, setSelectedCard } = useLoginData()
 
   return (
     <div className="flex flex-col bg-white rounded-lg w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16 h-fit m-4 p-4">

@@ -1,11 +1,14 @@
 'use client'
-import AddMoneyInput from "@/app/_components/AddMoneyInput";
-import ArrowBtn from "@/app/_components/ArrowBtn";
-import BigBtn from "@/app/_components/BigBtn";
+import AddMoneyInput from "../../_components/AddMoneyInput";
+import ArrowBtn from "../../_components/ArrowBtn";
+import BigBtn from "../../_components/BigBtn";
+import { useLoginData } from "../../_context/LoginContext";
 
 export default function Page({ params }) {
+  const { setAmount } = useLoginData()
 
   const handleSetAmount = (amount) => {
+    setAmount(amount)
   }
 
   return (

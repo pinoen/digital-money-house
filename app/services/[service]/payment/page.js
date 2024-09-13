@@ -1,34 +1,27 @@
 'use client'
-import ArrowBtn from "@/app/_components/ArrowBtn";
-import BigBtn from "@/app/_components/BigBtn";
-import CardsDataTable from "@/app/_components/CardsDataTable";
-import ServiceToPay from "@/app/_components/ServiceToPay";
-import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import ArrowBtn from "../../../_components/ArrowBtn";
+import BigBtn from "../../../_components/BigBtn";
+import CardsDataTable from "../../../_components/CardsDataTable";
+import ServiceToPay from "../../../_components/ServiceToPay";
+import { useCreateTransaction } from "../../../_hooks/useCreateTransaction";
+import { useUserAccount } from "../../../_hooks/useUserAccount";
+import { useUserCards } from "../../../_hooks/useUserCards";
 
 export default function Page({ params }) {
-  const router = useRouter()
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const account = useUserAccount(jwt)
+  const cards = useUserCards(account?.id, jwt)
+  const { mutate } = useCreateTransaction(account?.id, jwt, params)
 
   const handlePayment = async () => {
-    try {
-      const response = await axios.post(`https://digitalmoney.digitalhouse.com/api/accounts/${account?.id}/transactions`, {
-        dated: new Date(),
-        amount: -1000,
-        description: 'Pago de servicio',
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
-        }
-      })
-      dispatch(addActivity(response.data))
-      const newBalance = parseInt(account.available_amount) - 1000
-      dispatch(updateAccountBalance(newBalance))
-
-    } catch (error) {
-      router.push(`/services/${params.service}/payment/fail`)
-      console.log(error)
+    const data = {
+      dated: new Date(),
+      amount: -1000,
+      description: 'Pago de servicio',
     }
+    mutate(data)
   }
 
   return (

@@ -9,10 +9,12 @@ export const LoginContextProvider = ({ children }) => {
     password: "Emili0$",
   })
   const [amount, setAmount] = useState(1000)
+  const [selectedCard, setSelectedCard] = useState(null)
+
 
 
   return (
-    <LoginContext.Provider value={{ loginData, setLoginData, amount, setAmount }}>
+    <LoginContext.Provider value={{ loginData, setLoginData, amount, setAmount, selectedCard, setSelectedCard }}>
       {children}
     </LoginContext.Provider>
   )

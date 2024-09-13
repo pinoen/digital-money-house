@@ -10,9 +10,6 @@ const CardItem = ({ id, card, selectedCard, setSelectedCard }) => {
   const account = useUserAccount(jwt)
   const { mutate } = useDeleteCard(account?.id, id, jwt)
 
-  console.log(selectedCard)
-
-
   return (
     <div className="flex justify-start lg:justify-between gap-4 my-8">
       <div className="flex gap-4">
