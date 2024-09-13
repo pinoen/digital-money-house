@@ -1,13 +1,17 @@
 "use client"
-import AddNewCardForm from "@/app/_components/AddNewCardForm";
-import ArrowBtn from "@/app/_components/ArrowBtn";
-import axios from "axios";
+import AddNewCardForm from "../../_components/AddNewCardForm";
+import ArrowBtn from "../../_components/ArrowBtn";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 import Cards from 'react-credit-cards-2'
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
+import { useUserAccount } from "../../_hooks/useUserAccount";
+import { useCreateCard } from "../../_hooks/useCreateCard";
 
 export default function Page() {
-  const { id: accountId } = account
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const account = useUserAccount(jwt)
   const [card, setCard] = useState({
     cod: '',
     expiration_date: '',
@@ -30,6 +34,8 @@ export default function Page() {
     })
   }
 
+  const { mutate } = useCreateCard(account?.id, jwt)
+
   const handleAddCard = async () => {
     const newCard = {
       ...card,
@@ -37,18 +43,7 @@ export default function Page() {
       number_id: parseInt(card.number_id),
       expiration_date: card.expiration_date.slice(0, 2) + '/20' + card.expiration_date.slice(2)
     }
-
-    try {
-      const response = await axios.post(`https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/cards`, newCard, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
-        }
-      })
-      dispatch(addCard(response.data))
-    } catch (error) {
-      console.error(error);
-    }
+    mutate(newCard)
   }
 
   return (
