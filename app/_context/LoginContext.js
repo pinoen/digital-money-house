@@ -5,8 +5,8 @@ export const LoginContext = createContext()
 
 export const LoginContextProvider = ({ children }) => {
   const [loginData, setLoginData] = useState({
-    email: "pinoen@yahoo.com.ar",
-    password: "Emili0$",
+    email: "",
+    password: "",
   })
   const [amount, setAmount] = useState(1000)
   const [selectedCard, setSelectedCard] = useState(null)
