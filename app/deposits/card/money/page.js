@@ -3,10 +3,10 @@ import { useState } from "react";
 import AddMoneyInput from "../../../_components/AddMoneyInput";
 import ArrowBtn from "../../../_components/ArrowBtn";
 import BigBtn from "../../../_components/BigBtn";
+import { useLoginData } from "../../../_context/LoginContext";
 
 export default function Page() {
-  const [amount, setAmount] = useState(1000)
-
+  const { setAmount } = useLoginData()
   const handleSetAmount = (amount) => {
     setAmount(amount)
   }

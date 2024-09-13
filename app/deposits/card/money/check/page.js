@@ -3,14 +3,16 @@ import { useSession } from "next-auth/react";
 import ArrowBtn from "../../../../_components/ArrowBtn";
 import BigBtn from "../../../../_components/BigBtn";
 import CheckAmount from "../../../../_components/CheckAmount";
-import axios from "axios";
 import { useUserAccount } from "../../../../_hooks/useUserAccount";
+import { useLoginData } from "../../../../_context/LoginContext";
+import { useCreateDeposit } from "../../../../_hooks/useCreateDeposit";
 
 export default function Page() {
+  const { amount } = useLoginData()
   const session = useSession()
   const jwt = session.data?.user.token
   const account = useUserAccount(jwt)
-  const { cvu, id: accountId } = account
+  const { cvu, id } = account
   const data = {
     amount: parseInt(amount),
     date: new Date(),
@@ -18,20 +20,10 @@ export default function Page() {
     origin: 'cuenta propia',
   }
 
+  const { mutate } = useCreateDeposit(id, jwt)
+
   const handleAddActivity = async () => {
-    try {
-      const response = await axios.post(`https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/deposits`, data, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': typeof window !== 'undefined' && localStorage.getItem('token')
-        }
-      })
-      dispatch(addActivity(response.data))
-      const newBalance = parseInt(account.available_amount) + parseInt(amount)
-      dispatch(updateAccountBalance(newBalance))
-    } catch (error) {
-      console.error(error)
-    }
+    mutate(data)
   }
 
 

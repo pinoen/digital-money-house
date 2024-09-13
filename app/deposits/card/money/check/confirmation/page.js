@@ -1,12 +1,17 @@
 'use client'
-import ArrowBtn from "@/app/_components/ArrowBtn";
-import BigBtn from "@/app/_components/BigBtn";
-import CheckAmount from "@/app/_components/CheckAmount";
-import ConfirmationBlock from "@/app/_components/ConfirmationBlock";
+import { useSession } from "next-auth/react";
+import ArrowBtn from "../../../../../_components/ArrowBtn";
+import BigBtn from "../../../../../_components/BigBtn";
+import CheckAmount from "../../../../../_components/CheckAmount";
+import ConfirmationBlock from "../../../../../_components/ConfirmationBlock";
+import { useLoginData } from "../../../../../_context/LoginContext";
+import { useUserAccount } from "../../../../../_hooks/useUserAccount";
 
 export default function Page() {
-  const amount = useSelector(state => state.user.amount)
-  const account = useSelector(state => state.user.account)
+  const { amount } = useLoginData()
+  const session = useSession()
+  const jwt = session.data?.user.token
+  const account = useUserAccount(jwt)
   const { cvu } = account
 
   const printTicket = () => {

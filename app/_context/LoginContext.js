@@ -8,9 +8,11 @@ export const LoginContextProvider = ({ children }) => {
     email: "pinoen@yahoo.com.ar",
     password: "Emili0$",
   })
+  const [amount, setAmount] = useState(1000)
+
 
   return (
-    <LoginContext.Provider value={{ loginData, setLoginData }}>
+    <LoginContext.Provider value={{ loginData, setLoginData, amount, setAmount }}>
       {children}
     </LoginContext.Provider>
   )
