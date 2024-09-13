@@ -1,14 +1,17 @@
+import { signOut } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 
 const Menu = ({ setShowMenu }) => {
-  // const { firstname, lastname } = user
   const router = useRouter()
   const pathname = usePathname()
 
   const handleLogout = () => {
-
+    signOut({
+      callbackUrl: '/',
+      redirect: true
+    })
   }
 
   const handleClick = () => {
