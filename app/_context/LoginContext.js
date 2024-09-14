@@ -8,13 +8,12 @@ export const LoginContextProvider = ({ children }) => {
     email: "",
     password: "",
   })
-  const [amount, setAmount] = useState(1000)
+  const [amount, setAmount] = useState(0)
   const [selectedCard, setSelectedCard] = useState(null)
-
-
+  const [serviceNumber, setServiceNumber] = useState(null)
 
   return (
-    <LoginContext.Provider value={{ loginData, setLoginData, amount, setAmount, selectedCard, setSelectedCard }}>
+    <LoginContext.Provider value={{ loginData, setLoginData, amount, setAmount, selectedCard, setSelectedCard, serviceNumber, setServiceNumber }}>
       {children}
     </LoginContext.Provider>
   )
