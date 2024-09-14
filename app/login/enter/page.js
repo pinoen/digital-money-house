@@ -37,6 +37,7 @@ export default function Page() {
       router.push('/home');
     } catch (error) {
       console.log(error);
+      toast.error('Credenciales incorrectas');
       setIsError(true);
     } finally {
       setIsLoading(false);
