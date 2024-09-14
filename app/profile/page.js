@@ -14,7 +14,7 @@ export default function Page() {
   const { id, email, firstname, lastname, dni, phone } = useUserData(user_id, jwt)
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+115px)]">
+    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+415px)]">
       <ArrowBtn page='Perfil' />
       <PersonalDataCard email={email} fullname={`${firstname} ${lastname}`} cuit={dni} phone={phone} password="******" userId={id} />
       <div className="flex justify-center lg:w-[1006px] lg:mr-16">
