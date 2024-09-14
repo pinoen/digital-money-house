@@ -34,7 +34,7 @@ export default function Page() {
     })
   }
 
-  const { mutate } = useCreateCard(accountId, jwt)
+  const { mutate, isPending } = useCreateCard(accountId, jwt)
 
   const handleAddCard = async () => {
     const newCard = {
@@ -57,7 +57,7 @@ export default function Page() {
         focused={card.focus}
       />
 
-      <AddNewCardForm handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} handleAddCard={handleAddCard} />
+      <AddNewCardForm handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} handleAddCard={handleAddCard} disabled={isPending} />
     </main>
   )
 }

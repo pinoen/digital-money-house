@@ -13,7 +13,7 @@ export default function Page({ params }) {
   const jwt = session.data?.user.token
   const { id: accountId } = useUserAccount(jwt)
   const cards = useUserCards(accountId, jwt)
-  const { mutate } = useCreateTransaction(accountId, jwt, params)
+  const { mutate, isPending } = useCreateTransaction(accountId, jwt, params)
 
   const handlePayment = async () => {
     const data = {
@@ -29,7 +29,7 @@ export default function Page({ params }) {
       <ArrowBtn page='Pagar servicios' />
       <ServiceToPay service={params.service.toUpperCase()} amount={1000} />
       <CardsDataTable cards={cards} />
-      <BigBtn text='Pagar' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePayment} />
+      <BigBtn text='Pagar' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePayment} disabled={isPending} />
     </main>
   )
 }

@@ -20,7 +20,7 @@ export default function Page() {
     origin: 'cuenta propia',
   }
 
-  const { mutate } = useCreateDeposit(id, jwt)
+  const { mutate, isPending } = useCreateDeposit(id, jwt)
 
   const handleAddActivity = async () => {
     mutate(data)
@@ -30,7 +30,7 @@ export default function Page() {
     <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-screen">
       <ArrowBtn page='Cargar dinero' />
       <CheckAmount amount={amount} cvu={cvu} />
-      <BigBtn text='Continuar' goto={'/deposits/card/money/check/confirmation'} handleClick={handleAddActivity} />
+      <BigBtn text='Continuar' goto={'/deposits/card/money/check/confirmation'} handleClick={handleAddActivity} disabled={isPending} />
     </main>
   )
 }
