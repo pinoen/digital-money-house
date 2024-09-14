@@ -38,7 +38,7 @@ export default async function Page({ params }) {
       </div>
       <p className={`font-bold ${params === '/deposits/card/money/check' ? 'text-white text-xl' : 'text-A3 text-2xl'}`}>$ {transaction?.amount}</p>
       <small className="text-white">Le transferiste a</small>
-      <p className={`font-bold ${params === '/deposits/card/money/check' ? 'text-white text-xl' : 'text-A3 text-2xl'}`}>{transaction?.destination}</p>
+      <p className={`font-bold ${params === '/deposits/card/money/check' ? 'text-white text-xl' : 'text-A3 text-2xl'}`}>{transaction?.description}</p>
       <p className="text-white">Numero de operacion</p>
       <small className="text-white">000000000{transaction?.id}</small>
       {isMounted && (
