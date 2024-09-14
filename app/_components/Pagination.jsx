@@ -1,11 +1,11 @@
 const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
   const handlePrevious = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1)
-  }
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
 
   const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1)
-  }
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
 
   return (
     <div className="flex justify-between mt-4 mb-28">
@@ -16,7 +16,9 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
       >
         Anterior
       </button>
-      <span>{currentPage} de {totalPages}</span>
+      <span>
+        {currentPage} de {totalPages}
+      </span>
       <button
         onClick={handleNext}
         disabled={currentPage === totalPages}
@@ -25,7 +27,7 @@ const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
         Siguiente
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;

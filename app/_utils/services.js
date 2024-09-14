@@ -1,14 +1,14 @@
 export let services = [
   {
     logo: '/claro.svg',
-    service: 'Claro'
+    service: 'Claro',
   },
   {
     logo: '/personal.svg',
-    service: 'Personal'
+    service: 'Personal',
   },
   {
     logo: '/cablevision.svg',
-    service: 'Cablevision'
-  }
-]
+    service: 'Cablevision',
+  },
+];

@@ -1,7 +1,9 @@
-import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://digitalmoney.digitalhouse.com/api'
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  'https://digitalmoney.digitalhouse.com/api';
 
 export const useUserActivity = (id, jwt) => {
   const { data } = useQuery({
@@ -9,11 +11,11 @@ export const useUserActivity = (id, jwt) => {
     queryFn: () => {
       return axios.get(`${API_URL}/accounts/${id}/activity`, {
         headers: {
-          'Authorization': jwt
-        }
-      })
+          Authorization: jwt,
+        },
+      });
     },
-    enabled: !!jwt && !!id
-  })
-  return data?.data
-}
+    enabled: !!jwt && !!id,
+  });
+  return data?.data;
+};

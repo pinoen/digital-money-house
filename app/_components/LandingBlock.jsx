@@ -5,5 +5,5 @@ export const LandingBlock = ({ service, description }) => {
       <hr className="h-[2px] bg-A3 border-A3" />
       <p>{description}</p>
     </div>
-  )
-}
+  );
+};

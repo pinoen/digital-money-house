@@ -1,7 +1,11 @@
-import BigBtn from "./BigBtn"
+import BigBtn from './BigBtn';
 
-const AddNewCardForm = ({ handleInputChange, handleInputFocus, handleAddCard, disabled }) => {
-
+const AddNewCardForm = ({
+  handleInputChange,
+  handleInputFocus,
+  handleAddCard,
+  disabled,
+}) => {
   return (
     <form className="m-4 p-4 flex flex-col items-center  gap-4 shadow-xl rounded-xl w-[350px] md:w-[530px] lg:w-[973px] lg:grid lg:grid-cols-2 lg:gap-4">
       <hr className="h-[2px] bg-gray-300 border-gray-300 lg:hidden" />
@@ -38,9 +42,14 @@ const AddNewCardForm = ({ handleInputChange, handleInputFocus, handleAddCard, di
         onFocus={handleInputFocus}
       />
 
-      <BigBtn text='Continuar' goto='/home' handleClick={handleAddCard} disabled={disabled} />
+      <BigBtn
+        text="Continuar"
+        goto="/home"
+        handleClick={handleAddCard}
+        disabled={disabled}
+      />
     </form>
-  )
-}
+  );
+};
 
-export default AddNewCardForm
+export default AddNewCardForm;

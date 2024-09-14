@@ -14,20 +14,26 @@ funcionalidades básicas de registro, inicio y cierre de sesión, dar de alta me
 
 </div>
 
-
 <h1 align="center"> 
 <img src="https://media2.giphy.com/media/4ZrRpqbSaWoyZYRoCd/giphy.gif" width="30px">Funcionalidades
 </h1>
 
-
 ### - Página de inicio o landing page
+
 ### - Página de registro de usuario
+
 ### - Página de login
+
 ### - Página de dashboard
+
 ### - Página de perfil de usuario
+
 ### - Página de gestión de pago
+
 ### - Página de ingreso de dinero
+
 ### - Página de actividad del usuario
+
 ### - Página de pago de servicios
 
 <br />
@@ -48,37 +54,37 @@ funcionalidades básicas de registro, inicio y cierre de sesión, dar de alta me
 ![react-credit-card](https://img.shields.io/static/v1?style=for-the-badge&message=react-credit-card&color=008CDD&logo=react-credit-card&logoColor=FFFFFF&label=)
 ![react-icons](https://img.shields.io/static/v1?style=for-the-badge&message=react-icons&color=008CDD&logo=react-icons&logoColor=FFFFFF&label=)
 
-
 <h1 align="center"> 
 <img src="https://media1.giphy.com/media/QvpqIQAAl66EfoTJj8/giphy.gif" width="30px">Instrucciones para ejecutar la app
 </h1>
 
-Instrucciones para clonar el repo y ejecutar el proyecto localmente: 
+Instrucciones para clonar el repo y ejecutar el proyecto localmente:
 
 1- Clonar este repositorio
-   ```sh
-   git clone git@github.com:pinoen/digital-money-house.git
-   ```
+
+```sh
+git clone git@github.com:pinoen/digital-money-house.git
+```
 
 2- Abrir la terminal y correr el comando:
-  ```sh
-  cd digital-money-house
-  ```
+
+```sh
+cd digital-money-house
+```
+
 3- Finalmente ejecutar los comandos:
-  ```sh
-  npm install
-  npm run dev
-  ```
 
-O simplemente clickea en el link de 
+```sh
+npm install
+npm run dev
+```
+
+O simplemente clickea en el link de
 <a href="https://digital-money-house-pinoen.vercel.app/landing" target="_blank">Visitar App</a>
-
-
 
 <br>
 <hr/>
 <br>
-
 
 <h1 align="center"> 
 <img src="https://media1.giphy.com/media/xcFJX6T9z2iqiB9Ud9/giphy.gif" width="30px">Capturas de Pantalla de las diferentes Páginas
@@ -97,8 +103,6 @@ O simplemente clickea en el link de
 <img src="./public/pagar.png"/>
 
 <img src="./public/tarjetas.png"/>
-
-
 
 <h1 align="center"> 
 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXliemQ4NzVmdXRxc3FyM3RjN2F2NzQ5MmRwZnJxa2VrZDBncjhtbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/sa5tk2gi3G1MSmy1vY/giphy.gif" width="30px">Agradecimientos

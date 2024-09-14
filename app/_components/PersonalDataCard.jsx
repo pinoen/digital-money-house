@@ -1,21 +1,34 @@
-import { useState } from "react";
-import PersonalDataItem from "./PersonalDataItem";
-import { useSession } from "next-auth/react";
-import { useUpdateUserData } from "../_hooks/useUpdateUserData";
+import { useState } from 'react';
+import PersonalDataItem from './PersonalDataItem';
+import { useSession } from 'next-auth/react';
+import { useUpdateUserData } from '../_hooks/useUpdateUserData';
 
 const fieldMap = {
-  'Email': 'email',
+  Email: 'email',
   'Nombre y apellido': 'fullname',
-  'CUIT': 'cuit',
-  'Telefono': 'phone',
-  'Contrasena': 'password'
+  CUIT: 'cuit',
+  Telefono: 'phone',
+  Contrasena: 'password',
 };
 
-const PersonalDataCard = ({ email, fullname, cuit, phone, password, userId }) => {
-  const [userData, setUserData] = useState({ email, fullname, cuit, phone, password });
-  const { data: session } = useSession()
-  const jwt = session?.user?.token
-  const { mutate } = useUpdateUserData(userId, jwt)
+const PersonalDataCard = ({
+  email,
+  fullname,
+  cuit,
+  phone,
+  password,
+  userId,
+}) => {
+  const [userData, setUserData] = useState({
+    email,
+    fullname,
+    cuit,
+    phone,
+    password,
+  });
+  const { data: session } = useSession();
+  const jwt = session?.user?.token;
+  const { mutate } = useUpdateUserData(userId, jwt);
 
   const handleEdit = async (field, value) => {
     const fieldName = fieldMap[field];

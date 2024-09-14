@@ -5,9 +5,10 @@ export const searchActivity = (query, activity) => {
 
   const lowerCaseQuery = query.toLowerCase();
 
-  return activity.filter(item =>
-    item.origin.toLowerCase().includes(lowerCaseQuery) ||
-    item.type.toLowerCase().includes(lowerCaseQuery) ||
-    item.description.toLowerCase().includes(lowerCaseQuery)
+  return activity.filter(
+    item =>
+      item.origin.toLowerCase().includes(lowerCaseQuery) ||
+      item.type.toLowerCase().includes(lowerCaseQuery) ||
+      item.description.toLowerCase().includes(lowerCaseQuery)
   );
 };

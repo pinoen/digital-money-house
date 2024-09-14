@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { useState } from "react";
+import Image from 'next/image';
+import { useState } from 'react';
 
 const PersonalDataItem = ({ title, item, onEdit, isEditable }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -9,7 +9,7 @@ const PersonalDataItem = ({ title, item, onEdit, isEditable }) => {
     setIsEditing(true);
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setNewValue(e.target.value);
   };
 
@@ -34,13 +34,21 @@ const PersonalDataItem = ({ title, item, onEdit, isEditable }) => {
           <p className="text-gray-500 mb-1">{item}</p>
         )}
       </div>
-      {isEditable && (
-        isEditing ? (
-          <button onClick={handleSave} className="mx-6 text-orange-500">Guardar</button>
+      {isEditable &&
+        (isEditing ? (
+          <button onClick={handleSave} className="mx-6 text-orange-500">
+            Guardar
+          </button>
         ) : (
-          <Image src="/pen.svg" alt="edit" width={22} height={22} className="cursor-pointer mx-6" onClick={handleEdit} />
-        )
-      )}
+          <Image
+            src="/pen.svg"
+            alt="edit"
+            width={22}
+            height={22}
+            className="cursor-pointer mx-6"
+            onClick={handleEdit}
+          />
+        ))}
     </div>
   );
 };

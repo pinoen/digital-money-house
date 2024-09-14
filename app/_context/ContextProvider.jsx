@@ -1,8 +1,7 @@
-"use client"
+'use client';
 
-import { LoginContextProvider } from "./LoginContext"
-
+import { LoginContextProvider } from './LoginContext';
 
 export const ContextProvider = ({ children }) => {
-  return <LoginContextProvider>{children}</LoginContextProvider>
-}
+  return <LoginContextProvider>{children}</LoginContextProvider>;
+};

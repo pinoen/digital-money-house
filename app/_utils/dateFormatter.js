@@ -21,5 +21,3 @@ function formatDateToLongFormat(dateString) {
 }
 
 export { formatDateToDDMMYY, formatDateToLongFormat };
-
-
