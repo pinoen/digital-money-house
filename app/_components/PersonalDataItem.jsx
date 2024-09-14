@@ -28,6 +28,7 @@ const PersonalDataItem = ({ title, item, onEdit }) => {
             value={newValue}
             onChange={handleChange}
             className="text-gray-500 mb-1 border border-gray-300 rounded p-1"
+            disabled={title === 'Email' || title === 'CUIT'}
           />
         ) : (
           <p className="text-gray-500 mb-1">{item}</p>
