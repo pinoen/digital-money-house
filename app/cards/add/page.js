@@ -57,7 +57,7 @@ export default function Page() {
         focused={card.focus}
       />
 
-      <AddNewCardForm handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} handleAddCard={handleAddCard} disabled={isPending} />
+      <AddNewCardForm handleInputChange={handleInputChange} handleInputFocus={handleInputFocus} handleAddCard={handleAddCard} disabled={isPending || !card.number_id || !card.expiration_date || !card.cod || !card.first_last_name} />
     </main>
   )
 }
