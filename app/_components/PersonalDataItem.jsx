@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const PersonalDataItem = ({ title, item, onEdit }) => {
+const PersonalDataItem = ({ title, item, onEdit, isEditable }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newValue, setNewValue] = useState(item);
 
@@ -28,16 +28,18 @@ const PersonalDataItem = ({ title, item, onEdit }) => {
             value={newValue}
             onChange={handleChange}
             className="text-gray-500 mb-1 border border-gray-300 rounded p-1"
-            disabled={title === 'Email' || title === 'CUIT'}
+            disabled={!isEditable}
           />
         ) : (
           <p className="text-gray-500 mb-1">{item}</p>
         )}
       </div>
-      {isEditing ? (
-        <button onClick={handleSave} className="mx-6 text-orange-500">Guardar</button>
-      ) : (
-        <Image src="/pen.svg" alt="edit" width={22} height={22} className="cursor-pointer mx-6" onClick={handleEdit} />
+      {isEditable && (
+        isEditing ? (
+          <button onClick={handleSave} className="mx-6 text-orange-500">Guardar</button>
+        ) : (
+          <Image src="/pen.svg" alt="edit" width={22} height={22} className="cursor-pointer mx-6" onClick={handleEdit} />
+        )
       )}
     </div>
   );
