@@ -7,8 +7,10 @@ import ServiceToPay from "../../../_components/ServiceToPay";
 import { useCreateTransaction } from "../../../_hooks/useCreateTransaction";
 import { useUserAccount } from "../../../_hooks/useUserAccount";
 import { useUserCards } from "../../../_hooks/useUserCards";
+import { useLoginData } from "../../../_context/LoginContext";
 
 export default function Page({ params }) {
+  const { selectedCard, setSelectedCard, setServiceNumber } = useLoginData()
   const session = useSession()
   const jwt = session.data?.user.token
   const { id: accountId } = useUserAccount(jwt)
@@ -22,6 +24,8 @@ export default function Page({ params }) {
       description: 'Pago de servicio',
     }
     mutate(data)
+    setSelectedCard(null)
+    setServiceNumber(null)
   }
 
   return (
@@ -29,7 +33,7 @@ export default function Page({ params }) {
       <ArrowBtn page='Pagar servicios' />
       <ServiceToPay service={params.service.toUpperCase()} amount={1000} />
       <CardsDataTable cards={cards} />
-      <BigBtn text='Pagar' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePayment} disabled={isPending} />
+      <BigBtn text='Pagar' goto={`/services/${params.service}/payment/confirmation`} handleClick={handlePayment} disabled={isPending || !selectedCard} />
     </main>
   )
 }
