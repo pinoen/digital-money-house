@@ -42,17 +42,17 @@ funcionalidades básicas de registro, inicio y cierre de sesión, dar de alta me
 <img src="https://media0.giphy.com/media/uhQuegHFqkVYuFMXMQ/giphy.gif" width="30px">Tecnologias Utilizadas
 </h1>
 
-![Vite](https://img.shields.io/static/v1?style=for-the-badge&message=Vite&color=4169E1&logo=Vite&logoColor=FFFFFF&label=)
-![MongoDB](https://img.shields.io/static/v1?style=for-the-badge&message=MongoDB&color=4169E1&logo=MongoDB&logoColor=FFFFFF&label=)
 ![React](https://img.shields.io/static/v1?style=for-the-badge&message=React&color=222222&logo=React&logoColor=61DAFB&label=)
 ![NextJS](https://img.shields.io/static/v1?style=for-the-badge&message=NextJS&color=222222&logo=Vercel&logoColor=61DAFB&label=)
+![NextAuth](https://img.shields.io/static/v1?style=for-the-badge&message=NextAuth&color=222222&logo=NextAuth&logoColor=61DAFB&label=)
+![React Query](https://img.shields.io/static/v1?style=for-the-badge&message=ReactQuery&color=222222&logo=ReactQuery&logoColor=61DAFB&label=)
 ![Tailwind](https://img.shields.io/static/v1?style=for-the-badge&message=Tailwind&color=222222&logo=Tailwind&logoColor=61DAFB&label=)
-![eslint](https://img.shields.io/static/v1?style=for-the-badge&message=eslint&color=222222&logo=eslint&logoColor=61DAFB&label=)
 ![axios](https://img.shields.io/static/v1?style=for-the-badge&message=axios&color=008CDD&logo=axios&logoColor=FFFFFF&label=)
 ![react-hook-form](https://img.shields.io/static/v1?style=for-the-badge&message=react-hook-form&color=008CDD&logo=react-hook-form&logoColor=FFFFFF&label=)
+![zod](https://img.shields.io/static/v1?style=for-the-badge&message=zod&color=008CDD&logo=zod&logoColor=FFFFFF&label=)
 ![Vercel](https://img.shields.io/static/v1?style=for-the-badge&message=Vercel&color=000000&logo=Vercel&logoColor=FFFFFF&label=)
 ![react-credit-card](https://img.shields.io/static/v1?style=for-the-badge&message=react-credit-card&color=008CDD&logo=react-credit-card&logoColor=FFFFFF&label=)
-![react-icons](https://img.shields.io/static/v1?style=for-the-badge&message=react-icons&color=008CDD&logo=react-icons&logoColor=FFFFFF&label=)
+![react-toastify](https://img.shields.io/static/v1?style=for-the-badge&message=react-toastify&color=008CDD&logo=react-toastify&logoColor=FFFFFF&label=)
 
 <h1 align="center"> 
 <img src="https://media1.giphy.com/media/QvpqIQAAl66EfoTJj8/giphy.gif" width="30px">Instrucciones para ejecutar la app
