@@ -2,13 +2,15 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://digitalmoney.digitalhouse.com/api'
+
 export const useCreateTransaction = (accountId, jwt, params) => {
   const queryClient = useQueryClient()
   const router = useRouter()
 
   const { mutate, ...rest } = useMutation({
     mutationFn: (data) => {
-      return axios.post(`https://digitalmoney.digitalhouse.com/api/accounts/${accountId}/transactions`, data, {
+      return axios.post(`${API_URL}/accounts/${accountId}/transactions`, data, {
         headers: {
           'Authorization': jwt
         }

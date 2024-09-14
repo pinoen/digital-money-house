@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://digitalmoney.digitalhouse.com/api'
+
 export const useUserAccount = (jwt) => {
   const { data, ...rest } = useQuery({
     queryKey: ['account'],
     queryFn: async () => {
-      const response = await axios.get(`https://digitalmoney.digitalhouse.com/api/account`, {
+      const response = await axios.get(`${API_URL}/account`, {
         headers: {
           'Authorization': jwt
         }
