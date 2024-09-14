@@ -2,6 +2,7 @@ import { signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const Menu = ({ setShowMenu }) => {
   const router = useRouter();
@@ -12,6 +13,7 @@ const Menu = ({ setShowMenu }) => {
       callbackUrl: '/',
       redirect: true,
     });
+    toast.success('Sesión cerrada correctamente');
   };
 
   const handleClick = () => {

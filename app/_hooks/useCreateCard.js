@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -18,10 +19,12 @@ export const useCreateCard = (accountId, jwt) => {
     },
     onSuccess: () => {
       console.log('Card created successfully');
+      toast.success('Tarjeta creada correctamente');
       queryClient.invalidateQueries(['cards', 'account', 'activity', 'user']);
     },
     onError: error => {
       console.error('Error creating card:', error);
+      toast.error(error.message);
     },
   });
 

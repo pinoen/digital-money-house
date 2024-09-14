@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -18,6 +19,7 @@ export const useCreateDeposit = (accountId, jwt) => {
     },
     onSuccess: () => {
       console.log('Deposit created successfully');
+      toast.success('Deposito creado correctamente');
       queryClient.invalidateQueries([
         'deposits',
         'account',
@@ -28,6 +30,7 @@ export const useCreateDeposit = (accountId, jwt) => {
     },
     onError: error => {
       console.error('Error creating deposit:', error.message);
+      toast.error(error.message);
     },
   });
 

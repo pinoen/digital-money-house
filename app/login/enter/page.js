@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useLoginData } from '../../_context/LoginContext';
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function Page() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function Page() {
       );
 
       console.log(res.data);
+      toast.success('Sesión iniciada');
 
       await signIn('credentials', {
         email: loginData.email,

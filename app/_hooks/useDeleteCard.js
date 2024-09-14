@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const API_URL =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -17,10 +18,12 @@ export const useDeleteCard = (accountId, cardId, jwt) => {
     },
     onSuccess: () => {
       console.log('Card deleted successfully');
+      toast.success('Tarjeta eliminada correctamente');
       queryClient.invalidateQueries(['cards']);
     },
     onError: error => {
       console.error('Error deleting card:', error);
+      toast.error(error.message);
     },
   });
 
