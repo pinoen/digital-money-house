@@ -7,6 +7,7 @@ import useWindowWidth from '../_hooks/useWindowWidth';
 import { useSession } from 'next-auth/react';
 import { useUserAccount } from '../_hooks/useUserAccount';
 import { useUserData } from '../_hooks/useUserData';
+import { useRouter } from 'next/navigation';
 
 const HomeHeader = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -16,6 +17,7 @@ const HomeHeader = () => {
   const jwt = session.data?.user.token;
   const { user_id } = useUserAccount(jwt);
   const { firstname, lastname } = useUserData(user_id, jwt);
+  const router = useRouter();
 
   const firstnameInitial = firstname?.[0] ?? 'X';
   const lastnameInitial = lastname?.[0] ?? 'X';
@@ -28,7 +30,7 @@ const HomeHeader = () => {
 
   return (
     <div className="flex gap-4">
-      <div className="flex items-center">
+      <div className="flex items-center" onClick={() => router.push('/home')}>
         <div className="w-10 h-10 bg-A3 text-black font-bold rounded text-center content-center flex items-center justify-center">
           {initialUser}
         </div>
