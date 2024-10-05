@@ -12,19 +12,18 @@ const ActivityTable = ({ activity, searchQuery }) => {
   const itemsPerPage = 10;
   const router = useRouter();
   const params = usePathname();
-  const isActivityArray = Array.isArray(activity);
 
   useEffect(() => {
-    setFilteredActivity(activity);
+    setFilteredActivity(Array.isArray(activity) ? activity : []);
   }, [activity]);
 
   const applyFilter = filteredData => {
-    setFilteredActivity(filteredData);
+    setFilteredActivity(Array.isArray(filteredData) ? filteredData : []);
     setCurrentPage(1);
   };
 
   useEffect(() => {
-    if (searchQuery) {
+    if (searchQuery && Array.isArray(activity)) {
       const lowercasedQuery = searchQuery.toLowerCase();
       const searchFilteredActivity = activity.filter(item => {
         const origin = item.origin ? item.origin.toLowerCase() : '';
@@ -41,7 +40,7 @@ const ActivityTable = ({ activity, searchQuery }) => {
       });
       setFilteredActivity(searchFilteredActivity);
     } else {
-      setFilteredActivity(activity);
+      setFilteredActivity(Array.isArray(activity) ? activity : []);
     }
   }, [searchQuery, activity]);
 
@@ -49,16 +48,14 @@ const ActivityTable = ({ activity, searchQuery }) => {
     return [...filteredActivity].sort((a, b) => new Date(b.dated) - new Date(a.dated));
   }, [filteredActivity]);
 
-  const totalPages = isActivityArray
-    ? Math.ceil(sortedActivity.length / itemsPerPage)
-    : 1;
+  const totalPages = Math.ceil(sortedActivity.length / itemsPerPage);
 
   const currentItems = useMemo(() => {
-    if (isActivityArray && params === '/activity') {
+    if (params === '/activity') {
       return sortedActivity.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     }
     return [];
-  }, [isActivityArray, params, sortedActivity, currentPage]);
+  }, [params, sortedActivity, currentPage]);
 
   const lastTransactions = useMemo(() => {
     return sortedActivity.slice(0, 5);
@@ -86,29 +83,27 @@ const ActivityTable = ({ activity, searchQuery }) => {
         />
       )}
       <hr className="h-[2px] bg-gray-300 border-gray-300" />
-      {isActivityArray && (
-        <div className="flex flex-col gap-4">
-          {params === '/home'
-            ? lastTransactions.map(item => (
-              <ActivityItem
-                key={item.id}
-                id={item.id}
-                name={item.origin}
-                money={item.amount}
-                date={item.dated}
-              />
-            ))
-            : currentItems.map(item => (
-              <ActivityItem
-                key={item.id}
-                id={item.id}
-                name={item.origin}
-                money={item.amount}
-                date={item.dated}
-              />
-            ))}
-        </div>
-      )}
+      <div className="flex flex-col gap-4">
+        {params === '/home'
+          ? lastTransactions.map(item => (
+            <ActivityItem
+              key={item.id}
+              id={item.id}
+              name={item.origin}
+              money={item.amount}
+              date={item.dated}
+            />
+          ))
+          : currentItems.map(item => (
+            <ActivityItem
+              key={item.id}
+              id={item.id}
+              name={item.origin}
+              money={item.amount}
+              date={item.dated}
+            />
+          ))}
+      </div>
       {params === '/activity' && (
         <Pagination
           totalPages={totalPages}
