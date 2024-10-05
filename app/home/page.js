@@ -17,7 +17,7 @@ export default function Page() {
   const session = useSession();
   const jwt = session.data?.user.token;
   const { available_amount, id: accountId } = useUserAccount(jwt);
-  const money = parseFloat(available_amount).toFixed(2);
+  const money = available_amount && parseFloat(available_amount).toFixed(2);
   const activityData = useUserActivity(accountId, jwt);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Page() {
   return (
     <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
       <ArrowBtn page="Inicio" />
-      <AvailableMoneyCard money={money} />
+      <AvailableMoneyCard money={money || '0.00'} />
 
       {windowWidth > 1024 ? (
         <div className="flex gap-1 mr-16">
