@@ -2,13 +2,13 @@ import Image from 'next/image';
 import ActivityItem from './ActivityItem';
 import { usePathname, useRouter } from 'next/navigation';
 import FilterOptions from './FilterOptions';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Pagination from './Pagination';
 
 const ActivityTable = ({ activity, searchQuery }) => {
   const [showFilter, setShowFilter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [filteredActivity, setFilteredActivity] = useState(activity);
+  const [filteredActivity, setFilteredActivity] = useState([]);
   const itemsPerPage = 10;
   const router = useRouter();
   const params = usePathname();
@@ -45,15 +45,24 @@ const ActivityTable = ({ activity, searchQuery }) => {
     }
   }, [searchQuery, activity]);
 
+  const sortedActivity = useMemo(() => {
+    return [...filteredActivity].sort((a, b) => new Date(b.dated) - new Date(a.dated));
+  }, [filteredActivity]);
+
   const totalPages = isActivityArray
-    ? Math.ceil(filteredActivity?.length / itemsPerPage)
+    ? Math.ceil(sortedActivity.length / itemsPerPage)
     : 1;
-  const currentItems = isActivityArray
-    ? filteredActivity
-        ?.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
-        .reverse()
-    : [];
-  const lastTransactions = filteredActivity?.slice(-5).reverse();
+
+  const currentItems = useMemo(() => {
+    if (isActivityArray && params === '/activity') {
+      return sortedActivity.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    }
+    return [];
+  }, [isActivityArray, params, sortedActivity, currentPage]);
+
+  const lastTransactions = useMemo(() => {
+    return sortedActivity.slice(0, 5);
+  }, [sortedActivity]);
 
   return (
     <div className="m-4 p-4 flex flex-col gap-4 shadow-xl rounded-xl w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16">
@@ -80,24 +89,24 @@ const ActivityTable = ({ activity, searchQuery }) => {
       {isActivityArray && (
         <div className="flex flex-col gap-4">
           {params === '/home'
-            ? lastTransactions?.map(item => (
-                <ActivityItem
-                  key={item.id}
-                  id={item.id}
-                  name={item.origin}
-                  money={item.amount}
-                  date={item.dated}
-                />
-              ))
-            : currentItems?.map(item => (
-                <ActivityItem
-                  key={item.id}
-                  id={item.id}
-                  name={item.origin}
-                  money={item.amount}
-                  date={item.dated}
-                />
-              ))}
+            ? lastTransactions.map(item => (
+              <ActivityItem
+                key={item.id}
+                id={item.id}
+                name={item.origin}
+                money={item.amount}
+                date={item.dated}
+              />
+            ))
+            : currentItems.map(item => (
+              <ActivityItem
+                key={item.id}
+                id={item.id}
+                name={item.origin}
+                money={item.amount}
+                date={item.dated}
+              />
+            ))}
         </div>
       )}
       {params === '/activity' && (
