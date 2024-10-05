@@ -11,4 +11,16 @@ export let services = [
     logo: '/cablevision.svg',
     service: 'Cablevision',
   },
+  {
+    logo: '/movistar.png',
+    service: 'Movistar',
+  },
+  {
+    logo: '/dh.png',
+    service: 'DigitalHouse',
+  },
+  {
+    logo: '/netflix.png',
+    service: 'Netflix',
+  },
 ];
