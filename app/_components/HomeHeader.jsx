@@ -19,10 +19,10 @@ const HomeHeader = () => {
   const { firstname, lastname } = useUserData(user_id, jwt);
   const router = useRouter();
 
-  const firstnameInitial = firstname?.[0].toUpperCase() ?? 'X';
-  const lastnameInitial = lastname?.[0].toUpperCase() ?? 'X';
+  const firstnameInitial = firstname[0]?.toUpperCase() ?? 'X';
+  const lastnameInitial = lastname[0]?.toUpperCase() ?? 'X';
   const initialUser = firstnameInitial + lastnameInitial;
-  const fullname = firstname[0].toUpperCase() + firstname.slice(1) + ' ' + lastname[0].toUpperCase() + lastname.slice(1);
+  const fullname = firstname[0]?.toUpperCase() + firstname.slice(1) + ' ' + lastname[0]?.toUpperCase() + lastname.slice(1);
 
   useEffect(() => {
     setIsMounted(true);
