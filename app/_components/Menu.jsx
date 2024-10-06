@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 
-const Menu = ({ setShowMenu }) => {
+const Menu = ({ setShowMenu, fullname }) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -33,7 +33,7 @@ const Menu = ({ setShowMenu }) => {
           onClick={handleClick}
         >
           Hola, <br />
-          Emilio Pino
+          {fullname}
         </h1>
         <Image
           src="/closeBtn.svg"

@@ -19,10 +19,10 @@ const HomeHeader = () => {
   const { firstname, lastname } = useUserData(user_id, jwt);
   const router = useRouter();
 
-  const firstnameInitial = firstname?.[0] ?? 'X';
-  const lastnameInitial = lastname?.[0] ?? 'X';
+  const firstnameInitial = firstname?.[0].toUpperCase() ?? 'X';
+  const lastnameInitial = lastname?.[0].toUpperCase() ?? 'X';
   const initialUser = firstnameInitial + lastnameInitial;
-  const fullname = firstname + ' ' + lastname;
+  const fullname = firstname[0].toUpperCase() + firstname.slice(1) + ' ' + lastname[0].toUpperCase() + lastname.slice(1);
 
   useEffect(() => {
     setIsMounted(true);
@@ -48,7 +48,7 @@ const HomeHeader = () => {
         alt="menu"
         className={`md:hidden cursor-pointer w-auto ${showMenu ? 'hidden' : 'block'}`}
       />
-      {showMenu ? <Menu setShowMenu={setShowMenu} /> : null}
+      {showMenu ? <Menu setShowMenu={setShowMenu} fullname={fullname} /> : null}
       {isMounted && windowWidth > 768 && <Menu setShowMenu={setShowMenu} />}
     </div>
   );

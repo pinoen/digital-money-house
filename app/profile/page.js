@@ -21,7 +21,7 @@ export default function Page() {
       <ArrowBtn page="Perfil" />
       <PersonalDataCard
         email={email}
-        fullname={`${firstname} ${lastname}`}
+        fullname={`${firstname.toUpperCase()} ${lastname.toUpperCase()}`}
         cuit={dni}
         phone={phone}
         password="******"
