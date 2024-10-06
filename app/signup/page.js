@@ -35,7 +35,7 @@ export default function Page() {
         className="fullwidth h-12 p-4 w-[300px] bg-white text-black rounded"
         type="text"
         placeholder="Nombre*"
-        {...register('name', { required: 'Este campo es requerido' })}
+        {...register('firstname', { required: 'Este campo es requerido' })}
       />
       <p className="text-red-500 text-sm">{errors.name?.message}</p>
       <input
