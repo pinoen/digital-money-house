@@ -37,14 +37,12 @@ export default function Page() {
   const { mutate, isPending } = useCreateCard(accountId, jwt);
 
   const handleAddCard = async () => {
+    const [month, year] = card.expiration_date.split('/');
     const newCard = {
       ...card,
       cod: parseInt(card.cod),
       number_id: parseInt(card.number_id),
-      expiration_date:
-        card.expiration_date.slice(0, 2) +
-        '/20' +
-        card.expiration_date.slice(2),
+      expiration_date: `${month}/20${year}`,
     };
     mutate(newCard);
   };
