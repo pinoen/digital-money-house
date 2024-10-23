@@ -17,7 +17,10 @@ export default function Page() {
   const session = useSession();
   const jwt = session.data?.user.token;
   const { available_amount, id: accountId } = useUserAccount(jwt);
-  const money = available_amount && parseFloat(available_amount).toFixed(2);
+  const money = new Intl.NumberFormat('de-DE', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(available_amount);
   const activityData = useUserActivity(accountId, jwt);
 
   useEffect(() => {
@@ -27,7 +30,7 @@ export default function Page() {
   return (
     <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
       <ArrowBtn page="Inicio" />
-      <AvailableMoneyCard money={money || '0.00'} />
+      <AvailableMoneyCard money={money || '0,00'} />
 
       {windowWidth > 1024 ? (
         <div className="flex gap-1 mr-16">

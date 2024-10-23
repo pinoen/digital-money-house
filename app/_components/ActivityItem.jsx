@@ -2,6 +2,10 @@ import { useRouter } from 'next/navigation';
 import { formatDateToDDMMYY } from '../_utils/dateFormatter';
 const ActivityItem = ({ id, name, money, date }) => {
   const router = useRouter();
+  const formattedMoney = new Intl.NumberFormat('de-DE', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(money);
   const operation =
     money > 0 ? 'Te transfirieron dinero' : 'Transferiste dinero';
 
@@ -17,7 +21,7 @@ const ActivityItem = ({ id, name, money, date }) => {
         </span>
       </div>
       <div className="flex flex-col">
-        <span>$ {money.toFixed(2)}</span>
+        <span>$ {formattedMoney}</span>
         <small className="text-gray-400">{formatDateToDDMMYY(date)}</small>
       </div>
     </div>
