@@ -10,15 +10,16 @@ export const useUpdateUserData = (userId, jwt) => {
   const queryClient = useQueryClient();
 
   const { mutate, ...rest } = useMutation({
-    mutationFn: data => {
-      return axios.patch(`${API_URL}/users/${userId}`, data, {
+    mutationFn: async (data) => {
+      const response = await axios.patch(`${API_URL}/users/${userId}`, data, {
         headers: {
           Authorization: jwt,
         },
       });
+      return response.data;
     },
-    onSuccess: () => {
-      console.log('User data updated successfully');
+    onSuccess: (data) => {
+      console.log('User data updated successfully:', data);
       toast.success('Información actualizada correctamente');
       queryClient.invalidateQueries(['user']);
     },

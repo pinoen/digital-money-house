@@ -34,9 +34,19 @@ const PersonalDataCard = ({
     const fieldName = fieldMap[field];
     const newUserData = { ...userData, [fieldName]: value };
     setUserData(newUserData);
-    const payload = { [fieldName]: value };
 
-    mutate(payload);
+    if (fieldName === 'fullname') {
+      const [firstName, ...lastNameParts] = value.split(' ');
+      const lastName = lastNameParts.join(' ');
+
+      mutate({
+        firstname: firstName,
+        lastname: lastName
+      });
+    } else {
+      const payload = { [fieldName]: value };
+      mutate(payload);
+    }
   };
 
   return (
