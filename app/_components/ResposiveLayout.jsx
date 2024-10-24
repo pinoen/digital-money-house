@@ -12,19 +12,22 @@ export const ResponsiveLayout = ({ children }) => {
     setIsMounted(true);
   }, []);
 
+  const isPublicPage = params === '/' ||
+    params.startsWith('/login') ||
+    params.startsWith('/signup');
+
   return (
-    <div className="min-h-screen bg-slate-100">
-      <div className="flex flex-col md:flex-row">
+    <div className="min-h-full bg-slate-100">
+      <div className="flex flex-col md:flex-row relative">
         {/* Left space for menu in tablet/desktop */}
-        {params === '/' || params.startsWith('/login') || params.startsWith('/signup') ? <div>
-          {/* This div reserves space for the pages that don't need the menu */}
-        </div> :
+        {!isPublicPage && (
           <div className="hidden md:block md:w-[221px] lg:w-[276px] flex-shrink-0">
             {/* This div reserves space for the fixed menu */}
-          </div>}
+          </div>
+        )}
 
         {/* Main content area */}
-        <div className="flex-grow">
+        <div className="flex-grow min-h-[calc(100vh-80px)]"> {/* Subtract header height + any additional spacing */}
           {children}
         </div>
       </div>

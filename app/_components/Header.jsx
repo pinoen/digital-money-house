@@ -8,7 +8,7 @@ export const Header = () => {
   const params = usePathname();
 
   return (
-    <header className="sticky top-0 flex justify-between px-5 items-center gap-4 h-16 bg-A1">
+    <header className="fixed top-0 left-0 right-0 flex justify-between px-5 items-center gap-4 h-16 bg-A1 z-30">
       <Image
         width={63}
         height={20}

@@ -15,15 +15,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className='min-h-screen flex flex-col'>
         <SessionWrapper>
           <ContextProvider>
             <ReactQueryProvider>
               <ToastContainer />
               <Header />
-              <ResponsiveLayout>
-                {children}
-              </ResponsiveLayout>
+              <div className='flex-1 pt-16'>
+                <ResponsiveLayout>
+                  {children}
+                </ResponsiveLayout>
+              </div>
               <Footer />
             </ReactQueryProvider>
           </ContextProvider>
