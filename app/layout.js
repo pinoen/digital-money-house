@@ -6,6 +6,7 @@ import { ContextProvider } from './_context/ContextProvider';
 import SessionWrapper from './_context/SessionWrapper';
 import ReactQueryProvider from './_context/ReactQueryProvider';
 import { ToastContainer } from 'react-toastify';
+import { ResponsiveLayout } from './_components/ResposiveLayout';
 
 export const metadata = {
   title: 'Digital Money House',
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
             <ReactQueryProvider>
               <ToastContainer />
               <Header />
-              {children}
+              <ResponsiveLayout>
+                {children}
+              </ResponsiveLayout>
               <Footer />
             </ReactQueryProvider>
           </ContextProvider>
