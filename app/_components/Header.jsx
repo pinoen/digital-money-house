@@ -8,7 +8,7 @@ export const Header = () => {
   const params = usePathname();
 
   return (
-    <header className="flex justify-between px-5 items-center gap-4 h-16 bg-A1">
+    <header className="sticky top-0 flex justify-between px-5 items-center gap-4 h-16 bg-A1">
       <Image
         width={63}
         height={20}
@@ -18,13 +18,13 @@ export const Header = () => {
         priority
       />
       {params === '/home' ||
-      params === '/profile' ||
-      params.startsWith('/cards') ||
-      params.startsWith('/activity') ||
-      params === '/deposits' ||
-      params === '/deposits/transfer' ||
-      params.startsWith('/deposits/') ||
-      params.startsWith('/services') ? (
+        params === '/profile' ||
+        params.startsWith('/cards') ||
+        params.startsWith('/activity') ||
+        params === '/deposits' ||
+        params === '/deposits/transfer' ||
+        params.startsWith('/deposits/') ||
+        params.startsWith('/services') ? (
         <HomeHeader />
       ) : (
         <LandingHeader />
