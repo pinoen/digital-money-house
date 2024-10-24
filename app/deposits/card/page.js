@@ -16,7 +16,7 @@ export default function Page() {
   const cards = useUserCards(accountId, jwt);
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100 h-[calc(100vh+450px)]">
+    <main className="flex flex-col justify-start md:items-end lg:items-center bg-slate-100">
       <ArrowBtn page="Cargar dinero" />
       <CardsDataTable cards={cards} />
       <AddCardBox cards={cards} />

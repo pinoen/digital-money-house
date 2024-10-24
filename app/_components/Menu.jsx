@@ -26,7 +26,7 @@ const Menu = ({ setShowMenu, fullname }) => {
   };
 
   return (
-    <div className="z-50 absolute top-0 right-0 w-[250px] md:w-[221px] lg:w-[276px] md:top-16 md:left-0">
+    <div className="absolute top-0 right-0 w-[250px] md:w-[221px] lg:w-[276px] md:top-16 md:left-0">
       <div className="bg-A1 flex justify-between items-center md:hidden p-4">
         <h1
           className="text-A3 font-semibold text-2xl cursor-pointer"
@@ -44,7 +44,7 @@ const Menu = ({ setShowMenu, fullname }) => {
           onClick={() => setShowMenu(false)}
         />
       </div>
-      <div className="flex flex-col items-start gap-4 p-4 bg-A3 h-[calc(100vh+350px)]">
+      <div className="flex flex-col items-start gap-4 p-4 bg-A3 h-screen">
         <Link
           href={'/home'}
           className={`w-full px-4 py-2 bg-A3 text-black font-bold rounded text-left ${isActive('/home') && 'bg-green-400'}`}

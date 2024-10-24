@@ -48,7 +48,7 @@ export default function Page() {
   };
 
   return (
-    <main className="flex flex-col items-center lg:items-center lg:pt-8 md:items-end justify-start bg-slate-100 h-[calc(100vh+100px)]">
+    <main className="flex flex-col items-center lg:items-center lg:pt-8 md:items-end justify-start bg-slate-100">
       <ArrowBtn page="Tarjetas" />
       <Cards
         number={card.number_id}
@@ -57,7 +57,6 @@ export default function Page() {
         cvc={card.cod}
         focused={card.focus}
       />
-
       <AddNewCardForm
         handleInputChange={handleInputChange}
         handleInputFocus={handleInputFocus}

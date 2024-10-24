@@ -17,7 +17,7 @@ export default function Page() {
   );
 
   return (
-    <main className="flex flex-col justify-start lg:items-center md:items-end bg-slate-100 h-[calc(100vh+115px)]">
+    <main className="flex flex-col justify-start lg:items-center md:items-end bg-slate-100">
       <ArrowBtn page="Perfil" />
       <PersonalDataCard
         email={email}

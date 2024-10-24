@@ -13,7 +13,7 @@ export default function Page() {
   );
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+115px)]">
+    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100">
       <ArrowBtn page="Pagar servicios" />
       <SearchActivity onSearch={setSearchQuery} />
       <div className="flex flex-col justify-center bg-white rounded-lg w-[350px] md:w-[511px] lg:w-[800px] m-4 p-4">

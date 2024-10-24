@@ -16,7 +16,7 @@ const SearchActivity = ({ onSearch, initialSeach = '' }) => {
   };
 
   return (
-    <div className="relative m-4 w-[330px] md:w-[511px] lg:w-[800px]">
+    <div className="m-4 w-[330px] md:w-[511px] lg:w-[800px]">
       <input
         className="h-16 p-4 w-full bg-white text-black border-2 border-blue-300 rounded-2xl shadow-xl pl-12"
         type="text"
@@ -28,8 +28,8 @@ const SearchActivity = ({ onSearch, initialSeach = '' }) => {
         onChange={handleSeachChange}
         value={search}
       />
-      <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-        <Image src="/magnifier.svg" alt="Buscar" width={20} height={20} />
+      <div className="relative">
+        <Image className='absolute inset-y-[-40px] left-4 flex items-center pointer-events-none' src="/magnifier.svg" alt="Buscar" width={20} height={20} />
       </div>
     </div>
   );

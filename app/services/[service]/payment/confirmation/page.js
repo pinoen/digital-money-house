@@ -28,7 +28,7 @@ export default function Page({ params }) {
   };
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+100px)]">
+    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100">
       <ArrowBtn page="Pagar servicios" />
       <ConfirmationBlock />
       <ConfirmationPayment card={cardData?.number_id} amount={1000} />
