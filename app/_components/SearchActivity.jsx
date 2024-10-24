@@ -16,7 +16,7 @@ const SearchActivity = ({ onSearch, initialSeach = '' }) => {
   };
 
   return (
-    <div className="relative m-4 w-[330px] md:w-[511px] lg:w-[1006px] lg:mr-16 md:mr-6">
+    <div className="relative m-4 w-[330px] md:w-[511px] lg:w-[800px]">
       <input
         className="h-16 p-4 w-full bg-white text-black border-2 border-blue-300 rounded-2xl shadow-xl pl-12"
         type="text"

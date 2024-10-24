@@ -62,7 +62,7 @@ const ActivityTable = ({ activity, searchQuery }) => {
   }, [sortedActivity]);
 
   return (
-    <div className="m-4 p-4 flex flex-col gap-4 shadow-xl rounded-xl w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16">
+    <div className="m-4 p-4 flex flex-col gap-4 shadow-xl rounded-xl w-[350px] md:w-[511px] lg:w-[800px]">
       <div className="flex justify-between">
         <h2 className="text-xl font-bold">Tu actividad</h2>
         {params === '/activity' && (

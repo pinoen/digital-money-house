@@ -44,7 +44,7 @@ const Menu = ({ setShowMenu, fullname }) => {
           onClick={() => setShowMenu(false)}
         />
       </div>
-      <div className="flex flex-col items-start gap-4 p-4 bg-A3 h-[calc(100vh+115px)]">
+      <div className="flex flex-col items-start gap-4 p-4 bg-A3 h-[calc(100vh+350px)]">
         <Link
           href={'/home'}
           className={`w-full px-4 py-2 bg-A3 text-black font-bold rounded text-left ${isActive('/home') && 'bg-green-400'}`}

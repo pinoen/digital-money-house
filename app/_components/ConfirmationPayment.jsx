@@ -1,6 +1,6 @@
 const ConfirmationPayment = ({ amount, card, date }) => {
   return (
-    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16 h-auto m-4 p-4">
+    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[800px] h-auto m-4 p-4">
       {/* <small className="text-white font-bold">{formatDateToLongFormat(date)}</small> */}
       <p className="text-A3 text-2xl">$ {amount.toFixed(2)}</p>
       <small className="text-white">Para</small>

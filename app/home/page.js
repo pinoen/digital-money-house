@@ -33,7 +33,7 @@ export default function Page() {
       <AvailableMoneyCard money={money || '0,00'} />
 
       {windowWidth > 1024 ? (
-        <div className="flex gap-1 mr-16">
+        <div className="flex gap-1">
           <BigBtn text="Ingresar dinero" goto={'/deposits'} />
           <BigBtn text="Pago de servicios" goto={'/services'} />
         </div>

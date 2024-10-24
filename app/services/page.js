@@ -16,7 +16,7 @@ export default function Page() {
     <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+115px)]">
       <ArrowBtn page="Pagar servicios" />
       <SearchActivity onSearch={setSearchQuery} />
-      <div className="flex flex-col justify-center bg-white rounded-lg w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16 h-fit m-4 p-4">
+      <div className="flex flex-col justify-center bg-white rounded-lg w-[350px] md:w-[511px] lg:w-[800px] m-4 p-4">
         <h1 className="text-A1 font-bold text-xl mb-4">Mas recientes</h1>
         <hr className="h-[2px] bg-gray-300 border-gray-300 mb-4" />
         {filteredServices.map(service => (

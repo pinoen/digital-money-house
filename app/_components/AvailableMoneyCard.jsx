@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const AvailableMoneyCard = ({ money }) => {
   return (
-    <div className="flex flex-col gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[1006px] lg:mr-16 h-[180px] md:h-[230px] m-4 p-4">
+    <div className="flex flex-col gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[800px] h-[180px] md:h-[230px] m-4 p-4">
       <div className="flex justify-end gap-4">
         <Link
           href={'/cards'}

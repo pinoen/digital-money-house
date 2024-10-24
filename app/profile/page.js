@@ -17,7 +17,7 @@ export default function Page() {
   );
 
   return (
-    <main className="flex flex-col justify-start md:items-end lg:items-center items-center bg-slate-100 h-[calc(100vh+415px)]">
+    <main className="flex flex-col justify-start lg:items-center md:items-end bg-slate-100 h-[calc(100vh+115px)]">
       <ArrowBtn page="Perfil" />
       <PersonalDataCard
         email={email}
@@ -27,7 +27,7 @@ export default function Page() {
         password="******"
         userId={id}
       />
-      <div className="flex justify-center lg:w-[1006px] lg:mr-16">
+      <div className="flex justify-center lg:w-[800px]">
         <BigBtn
           text="Gestionar medios de pago"
           goto={'/cards'}
