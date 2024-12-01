@@ -26,7 +26,7 @@ const FilterOptions = ({ activity, applyFilter, setShowFilter }) => {
   };
 
   return (
-    <div className="z-50 absolute top-72 right-3 w-[340px] h-[500px] md:top-56 md:w-[511px] lg:w-[800px] ">
+    <div className="z-50 absolute top-56 right-3 w-[340px] h-[500px] md:top-56 md:w-[511px] lg:w-[800px] ">
       <div className="bg-white flex flex-col gap-2 w-full h-[430px] border-2 border-gray-300">
         <div className="flex justify-between m-3">
           <h3 className="font-bold text-xl">Periodo</h3>
