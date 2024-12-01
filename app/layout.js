@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
             <ReactQueryProvider>
               <ToastContainer />
               <Header />
-              <div className='flex-1 pt-16'>
+              <div className='flex-1 pt-16 max-w-full overflow-hidden'>
                 <ResponsiveLayout>
                   {children}
                 </ResponsiveLayout>
