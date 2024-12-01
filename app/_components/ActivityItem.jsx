@@ -21,7 +21,7 @@ const ActivityItem = ({ id, name, money, date }) => {
         </span>
       </div>
       <div className="flex flex-col">
-        <span>$ {formattedMoney}</span>
+        <span className="w-[100px]">$ {formattedMoney}</span>
         <small className="text-gray-400">{formatDateToDDMMYY(date)}</small>
       </div>
     </div>
