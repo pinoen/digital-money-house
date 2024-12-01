@@ -27,7 +27,7 @@ const BigBtn = ({
   };
 
   const buttonClasses = `
-    w-[300px] md:w-[450px] h-16 md:h-[85px] 
+    w-[280px] self-center md:w-[450px] h-16 md:h-[85px] 
     mx-6 px-4 my-3 
     font-bold rounded-2xl text-center content-center shadow-xl
     ${specificWidth ? 'lg:w-[800px]' : 'lg:w-[375px]'}
