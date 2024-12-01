@@ -28,7 +28,7 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="flex flex-col justify-start lg:items-center md:items-end  bg-slate-100 h-full">
+    <main className="flex flex-col justify-start items-center lg:items-center md:items-end  bg-slate-100 h-full">
       <ArrowBtn page="Inicio" />
       <AvailableMoneyCard money={money || '0,00'} />
 
