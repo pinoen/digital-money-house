@@ -7,6 +7,7 @@ const CbuCard = ({ cvu, alias }) => {
         Copia tu cvu o alias para ingresar o transferir dinero desde otra cuenta
       </small>
       <CbuItem item={cvu} title="CVU" />
+      <hr className="h-[2px] bg-gray-300 border-gray-300 my-2" />
       <CbuItem item={alias} title="ALIAS" />
     </div>
   );
