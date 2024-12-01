@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const PaymentError = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[800px] h-auto m-4 p-4">
+    <div className="flex flex-col justify-center items-center gap-4 bg-A1 rounded-lg w-[335px] md:w-[511px] lg:w-[800px] h-auto m-4 p-4">
       <Image width={41} height={41} src="/error.svg" alt="error" />
       <p className="text-white font-bold text-2xl px-10 text-center">
         Hubo un problema con tu pago

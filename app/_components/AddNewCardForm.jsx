@@ -72,7 +72,7 @@ const AddNewCardForm = ({
   };
 
   return (
-    <form className="m-4 p-6 flex flex-col items-center  gap-4 shadow-xl rounded-xl w-[350px] md:w-[530px] lg:w-[800px] lg:grid lg:grid-cols-2 lg:gap-4">
+    <form className="m-4 p-6 flex flex-col items-center  gap-4 shadow-xl rounded-xl w-[335px] md:w-[530px] lg:w-[800px] lg:grid lg:grid-cols-2 lg:gap-4">
       <hr className="h-[2px] bg-gray-300 border-gray-300 lg:hidden" />
       <input
         className="fullwidth h-12 p-4 w-[300px] md:w-[480px] lg:w-[360px] lg:h-16 bg-white text-black rounded shadow-md"

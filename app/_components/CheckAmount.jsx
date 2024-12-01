@@ -6,7 +6,7 @@ const CheckAmount = ({ amount, cvu }) => {
   const params = usePathname();
 
   return (
-    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[800px] h-auto m-4 p-4">
+    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[335px] md:w-[511px] lg:w-[800px] h-auto m-4 p-4">
       <h2 className="text-A3 text-xl font-bold">Revisá que está todo bien</h2>
       <hr />
       <div className="flex justify-start items-center gap-2">

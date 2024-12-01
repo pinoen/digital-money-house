@@ -26,7 +26,7 @@ export default async function Page({ params }) {
   };
 
   return (
-    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[800px] m-4 p-4">
+    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[335px] md:w-[511px] lg:w-[800px] m-4 p-4">
       <div className="flex justify-start gap-2 items-center">
         <Image width={28} height={28} src="/checkGreen.svg" alt="success" />
         <h2 className="text-A3 text-xl font-bold">Aprobada</h2>

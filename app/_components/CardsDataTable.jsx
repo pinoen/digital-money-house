@@ -8,7 +8,7 @@ const CardsDataTable = ({ cards }) => {
   const { selectedCard, setSelectedCard } = useLoginData();
 
   return (
-    <div className="flex flex-col bg-white rounded-lg w-[350px] md:w-[511px] lg:w-[800px] m-4 p-4">
+    <div className="flex flex-col bg-white rounded-lg w-[335px] md:w-[511px] lg:w-[800px] m-4 p-4">
       <h1 className="text-A1 font-bold text-xl mb-4">
         {params === '/cards' || params.startsWith('/services')
           ? 'Tus tarjetas'

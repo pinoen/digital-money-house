@@ -14,7 +14,7 @@ const AddCardBox = ({ cards }) => {
     }
   };
   return (
-    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[350px] md:w-[511px] lg:w-[800px] h-[150px] m-4 p-4">
+    <div className="flex flex-col justify-center gap-4 bg-A1 rounded-lg w-[335px] md:w-[511px] lg:w-[800px] h-[150px] m-4 p-4">
       {params === '/cards' && (
         <p className="text-white text-lg font-semibold">
           Agregá tu tarjeta de débito o crédito
